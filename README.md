@@ -42,4 +42,5 @@
 
 ## ER Diagram
 
-![image](https://github.com/user-attachments/assets/57469f99-d9c9-4ca5-af91-ff7805534a68)
+![image](https://github.com/user-attachments/assets/e5140531-ebe2-4389-bd1b-c09f253a95d9)
+
