@@ -39,3 +39,7 @@
   - `Patients`：病患。
   - `Appointments`：預約。
 - **關係**：一個病患可有多個預約（一對多）。
+
+## ER Diagram
+
+![image](https://github.com/user-attachments/assets/57469f99-d9c9-4ca5-af91-ff7805534a68)
