@@ -42,7 +42,8 @@
 
 ## ER Diagram
 
-![image](https://github.com/user-attachments/assets/e5140531-ebe2-4389-bd1b-c09f253a95d9)
+![image](https://github.com/user-attachments/assets/5c803a18-1143-4f87-8ae6-856d87331fcf)
+
 
 ## 簡報
 https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
