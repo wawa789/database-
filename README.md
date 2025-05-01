@@ -80,15 +80,12 @@
   - 看診紀錄：病患、看診醫生、看診日期
 
 ### 2. 概念設計
-- **實體**：
-  - `Patients`：病患。
-  - `Appointments`：預約。
-- **關係**：一個病患可以預約。
 
 ## 一對多的關聯
 
 ![image](https://github.com/user-attachments/assets/54a8319e-b0f0-49c6-aca8-cf4a38415655)
 
+![image](https://github.com/user-attachments/assets/763de2c5-cae5-4c2b-b8f1-165b5f138885)
 ## ER Diagram
 
 ![image](https://github.com/user-attachments/assets/5c803a18-1143-4f87-8ae6-856d87331fcf)
