@@ -107,5 +107,74 @@
 ![image](https://github.com/user-attachments/assets/ac2908fd-5c45-49bd-9ccd-e84e08e28a6d)
 
 
+## 病患資料表
+CREATE TABLE patient (
+
+    patient_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    phone VARCHAR(20),
+    birth_date DATE,
+    gender VARCHAR(2) CHECK (gender IN ('M', 'F')),
+    
+    national_id CHAR(10) UNIQUE,  
+    resident_id CHAR(10) UNIQUE,  
+
+    INDEX idx_patient_name (name),
+    INDEX idx_birth_date (birth_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+## 醫生資料表
+CREATE TABLE doctor (
+    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    specialty VARCHAR(50),
+    phone VARCHAR(20),
+
+    INDEX idx_doctor_specialty (specialty)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+## 病歷表
+CREATE TABLE medical_record (
+    medical_record_id INT PRIMARY KEY AUTO_INCREMENT,
+    patient_id INT NOT NULL,
+    diagnosis_record TEXT,
+    last_visit_date DATE,
+
+    FOREIGN KEY (patient_id) REFERENCES patient(patient_id) ON DELETE CASCADE,
+    INDEX idx_last_visit (last_visit_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+## 預約表
+CREATE TABLE appointment (
+    appointment_id INT PRIMARY KEY AUTO_INCREMENT,
+    medical_record_id INT NOT NULL,
+    doctor_id INT NOT NULL,
+    appointment_time DATETIME NOT NULL,
+    status VARCHAR(20) DEFAULT 'scheduled',
+
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id) ON DELETE CASCADE,
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
+    INDEX idx_appointment_time (appointment_time),
+    INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+## 使用者帳號表
+CREATE TABLE user (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(100) NOT NULL,
+    user_type ENUM('patient', 'doctor', 'admin') NOT NULL,
+
+    doctor_id INT,
+    patient_id INT,
+    medical_record_id INT,
+
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
+    FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
+    INDEX idx_user_type (user_type)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
 ## 簡報
 https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
