@@ -88,7 +88,7 @@
 ![image](https://github.com/user-attachments/assets/763de2c5-cae5-4c2b-b8f1-165b5f138885)
 ## ER Diagram
 
-![image](https://github.com/user-attachments/assets/5c803a18-1143-4f87-8ae6-856d87331fcf)
+![Image](https://github.com/user-attachments/assets/9984557d-b23c-47c0-a3f7-c778ead34ba4)
 
 
 ## 簡報
