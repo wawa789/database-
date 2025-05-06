@@ -259,7 +259,7 @@ FROM patient p
 WHERE p.name IN ('陳怡君', '李志明', '黃美惠');
 ```
 
-## 建立醫生可以看到的資訊
+## 建立檢視表為醫生可以看到的資訊
 ```
 CREATE VIEW view_doctor_schedule AS
 SELECT d.name AS doctor_name, p.name AS patient_name, a.appointment_time, mr.diagnosis_record
@@ -269,7 +269,7 @@ JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
 JOIN patient p ON mr.patient_id = p.patient_id;
 ```
 
-## 建立管理員可以看到資訊
+## 建立檢視表為管理員可以看到資訊
 ```
 CREATE OR REPLACE VIEW view_user_summary AS
 SELECT 
@@ -291,7 +291,7 @@ LEFT JOIN patient p ON u.patient_id = p.patient_id
 LEFT JOIN doctor d ON u.doctor_id = d.doctor_id;
 ```
 
-## 建立病患可以看到的資訊
+## 建立檢視表為病患可以看到的資訊
 ```
 CREATE VIEW view_patient_record AS
 SELECT u.username, p.name AS patient_name, mr.diagnosis_record, a.appointment_time
