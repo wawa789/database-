@@ -181,7 +181,7 @@ INSERT INTO patient (name, phone, birth_date, gender, national_id, resident_id) 
 ('王小明', '0912345678', '1990-01-15', 'M', 'A123456789', NULL),
 ('李美麗', '0922333444', '1985-06-28', 'F', 'B223456789', NULL),
 ('陳建宏', '0933221144', '1975-12-02', 'M', 'C123456789', NULL),
-('張凱婷', '0955667788', '1992-04-10', 'F', NULL, 'A800000001'),
+('黃凱婷', '0955667788', '1992-04-10', 'F', NULL, 'A800000001'),
 ('林靜怡', '0966112233', '2000-08-20', 'F', NULL, 'A900000002');
 ```
 
@@ -215,48 +215,48 @@ INSERT INTO user (username, password, user_type)
 VALUES ('admin', 'admin123', 'admin');
 ```
 
-## 新增醫生帳號密碼資料
+## 新增病患帳號密碼資料
 ```
 INSERT INTO user (username, password, user_type, doctor_id)
 SELECT
+    CASE p.name
+        WHEN '王小明' THEN 'pt_wang'
+        WHEN '李美麗' THEN 'pt_lee'
+        WHEN '陳建宏' THEN 'pt_chen'
+        WHEN '黃凱婷' THEN 'pt_huang'
+        WHEN '林靜怡' THEN 'pt_lin'
+    END AS username,
+    CASE p.name
+        WHEN '王小明' THEN 'wang456'
+        WHEN '李美麗' THEN 'lee789'
+        WHEN '陳建宏' THEN 'chen321'
+        WHEN '黃凱婷' THEN 'huang111'
+        WHEN '林靜怡' THEN 'lin555'
+    END AS password,
+    'patient',
+    d.patient_id
+FROM patient p
+WHERE d.name IN ('王大明', '李美麗', '陳建宏', '黃凱婷', '林靜怡');
+```
+
+## 新增醫生帳號密碼資料
+```
+INSERT INTO user (username, password, user_type, patient_id)
+SELECT
     CASE d.name
-        WHEN '王大明' THEN 'dr_wang'
-        WHEN '林小芳' THEN 'dr_lin1'
-        WHEN '林文雄' THEN 'dr_lin2'
+        WHEN '林文雄' THEN 'dr_lin'
         WHEN '黃信誠' THEN 'dr_huang'
         WHEN '蔡宜君' THEN 'dr_tsai'
     END AS username,
     CASE d.name
-        WHEN '王大明' THEN 'wang456'
-        WHEN '林小芳' THEN 'lin789'
-        WHEN '林文雄' THEN 'wen321'
-        WHEN '黃信誠' THEN 'huang111'
-        WHEN '蔡宜君' THEN 'tsai555'
+        WHEN '林文雄' THEN 'lin999'
+        WHEN '黃信誠' THEN 'huang123'
+        WHEN '蔡宜君' THEN 'tsai888'
     END AS password,
     'doctor',
     d.doctor_id
 FROM doctor d
-WHERE d.name IN ('王大明', '林小芳', '林文雄', '黃信誠', '蔡宜君');
-```
-
-## 新增病患帳號密碼資料
-```
-INSERT INTO user (username, password, user_type, patient_id)
-SELECT
-    CASE p.name
-        WHEN '陳怡君' THEN 'pt_chen'
-        WHEN '李志明' THEN 'pt_lee'
-        WHEN '黃美惠' THEN 'pt_huang'
-    END AS username,
-    CASE p.name
-        WHEN '陳怡君' THEN 'chen999'
-        WHEN '李志明' THEN 'lee123'
-        WHEN '黃美惠' THEN 'huang888'
-    END AS password,
-    'patient',
-    p.patient_id
-FROM patient p
-WHERE p.name IN ('陳怡君', '李志明', '黃美惠');
+WHERE d.name IN ('林文雄', '黃信誠', '蔡宜君');
 ```
 
 ## 建立檢視表為醫生可以看到的資訊
