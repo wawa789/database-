@@ -234,9 +234,9 @@ SELECT
         WHEN '林靜怡' THEN 'lin555'
     END AS password,
     'patient',
-    d.patient_id
+    p.patient_id
 FROM patient p
-WHERE d.name IN ('王大明', '李美麗', '陳建宏', '黃凱婷', '林靜怡');
+WHERE p.name IN ('王小明', '李美麗', '陳建宏', '黃凱婷', '林靜怡');
 ```
 
 ## 新增醫生帳號密碼資料
