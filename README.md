@@ -217,7 +217,7 @@ VALUES ('admin', 'admin123', 'admin');
 
 ## 新增病患帳號密碼資料
 ```
-INSERT INTO user (username, password, user_type, doctor_id)
+INSERT INTO user (username, password, user_type, patient_id)
 SELECT
     CASE p.name
         WHEN '王小明' THEN 'pt_wang'
@@ -241,7 +241,7 @@ WHERE p.name IN ('王小明', '李美麗', '陳建宏', '黃凱婷', '林靜怡'
 
 ## 新增醫生帳號密碼資料
 ```
-INSERT INTO user (username, password, user_type, patient_id)
+INSERT INTO user (username, password, user_type, doctor_id)
 SELECT
     CASE d.name
         WHEN '林文雄' THEN 'dr_lin'
