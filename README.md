@@ -52,19 +52,27 @@
 
 ## patients 表（病患資料表）
 
-![image](https://github.com/user-attachments/assets/7c8cd3eb-d4af-48c8-8c91-863dc541f686)
+![image](https://github.com/user-attachments/assets/fa8a0542-79df-4943-b29f-716f2ec601e0)
+
 
 ## doctors 表（醫生資料表）
 
-![image](https://github.com/user-attachments/assets/4747824c-8089-4eed-be58-7a6f350d50b3)
+![image](https://github.com/user-attachments/assets/0fd0334d-8328-4e09-af90-221589aa909b)
+
 
 ## appointments表（預約資料表）
 
-![image](https://github.com/user-attachments/assets/93fe0864-0899-4580-85a4-033120e594af)
+![image](https://github.com/user-attachments/assets/3969f3fc-2608-42e9-961d-e4e4a71d5994)
 
-## visits表（就診資料表）
 
-![image](https://github.com/user-attachments/assets/96fc1c7b-20b2-4cc5-b4ec-82be0754a140)
+## medical_record表（病歷資料表）
+
+![image](https://github.com/user-attachments/assets/14c9b878-ac34-4d7c-89ba-f6b81cd767a9)
+
+## user表 (使用者帳號密碼資料表)
+
+![image](https://github.com/user-attachments/assets/7f685006-06e3-48b8-a1f9-06fd8fe20f86)
+
 
 ---
 
