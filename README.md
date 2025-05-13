@@ -327,7 +327,6 @@ CREATE TABLE Customer (
 );
 ```
 ```
--- 將資料插入 Customer 資料表
 INSERT INTO Customer (customerNo, customerName, customerStreet, customerCity, customerState, customerZipCode, custTelNo, custFaxNo, DOB, maritalStatus, creditRating) VALUES
 (1, '張三', '中山路一段100號', '台北市', '台北', '10000', '02-23456789', '02-23456788', '1980-05-15', '未婚', 'AA'),
 (2, '李四', '中正路二段200號', '台中市', '台中', '40000', '04-87654321', '04-87654322', '1975-10-20', '已婚', 'A'),
@@ -336,7 +335,6 @@ INSERT INTO Customer (customerNo, customerName, customerStreet, customerCity, cu
 (5, '林七', '和平路二段500號', '桃園市', '桃園', '33000', '03-23987654', '03-23987655', '1992-12-05', '未婚', 'BB');
 ```
 ```
--- 建立 Employee 資料表
 CREATE TABLE Employee (
 	employeeNo INT PRIMARY KEY,
 	title VARCHAR(10),
@@ -356,7 +354,6 @@ CREATE TABLE Employee (
 );
 ```
 ```
--- 將資料插入 Employee 資料表
 INSERT INTO Employee (employeeNo, title, firstName, middleName, lastName, address, workTelExt, homeTelNo, empEmailAddress, socialSecurityNumber, DOB, position, sex, salary, dateStarted) VALUES
 (101, '經理', '陳', NULL, '大文', '中山路一段100號, 台北市, 台灣', '1234', '02-9876543210', 'john.smith@example.com', 'SSN12345', '1970-01-15', '經理', '男', 50000.00, '2005-08-20'),
 (102, '專員', '林', NULL, '靜宜', '忠孝東路二段200號, 台北市, 台灣', '5678', '02-9876543211', 'jane.doe@example.com', 'SSN67890', '1985-06-22', '專員', '女', 40000.00, '2010-03-01'),
@@ -365,7 +362,7 @@ INSERT INTO Employee (employeeNo, title, firstName, middleName, lastName, addres
 (105, '技術員', '李', NULL, '國華', '和平路二段500號, 桃園市, 台灣', '7890', '03-9876543214', 'michael.brown@example.com', 'SSN34567', '1995-02-28', '技術員', '男', 35000.00, '2018-09-24');
 ```
 ```
-CREATE TABLE `Order` ( -- 避免與 SQL 保留字衝突，加上反引號
+CREATE TABLE `Order` (
 	orderNo INT PRIMARY KEY,
 	orderDate DATE,
 	billingStreet VARCHAR(255),
@@ -381,7 +378,6 @@ CREATE TABLE `Order` ( -- 避免與 SQL 保留字衝突，加上反引號
 );
 ```
 ```
--- 將資料插入 Order 資料表
 INSERT INTO `Order` (orderNo, orderDate, billingStreet, billingCity, billingState, billingZipCode, promisedDate, status, customerNo, employeeNo) VALUES
 (2001, '2023-01-20', '中山路一段100號', '台北市', '台北', '10000', '2023-01-27', '已出貨', 1, 101),
 (2002, '2023-02-05', '忠孝東路二段200號', '台北市', '台北', '10600', '2023-02-12', '已出貨', 2, 102),
@@ -396,7 +392,6 @@ CREATE TABLE PaymentMethod (
 );
 ```
 ```
--- 將資料插入 PaymentMethod 資料表
 INSERT INTO PaymentMethod (pMethodNo, paymentMethod) VALUES
 (3001, '信用卡'),
 (3002, '現金'),
@@ -419,7 +414,6 @@ CREATE TABLE Invoice (
 );
 ```
 ```
--- 將資料插入 Invoice 資料表
 INSERT INTO Invoice (invoiceNo, dateRaised, datePaid, creditCardNo, holdersName, expiryDate, orderNo, pMethodNo) VALUES
 (1001, '2023-01-25', '2023-01-25', '1234567890123456', '張三', '2028-12-31', 2001, 3001),
 (1002, '2023-02-10', '2023-02-15', '9876543210987654', '李四', '2027-11-30', 2002, 3002),
@@ -440,7 +434,6 @@ CREATE TABLE Product (
 );
 ```
 ```
--- 將資料插入 Product 資料表
 INSERT INTO Product (productNo, productName, serialNo, unitPrice, quantityOnHand, reorderLevel, reorderQuantity, reorderLeadTime) VALUES
 (3001, '產品 A', 'SN-12345', 100.00, 50, 10, 100, 7),
 (3002, '產品 B', 'SN-67890', 150.00, 30, 5, 50, 10),
@@ -459,7 +452,6 @@ CREATE TABLE OrderDetail (
 );
 ```
 ```
--- 將資料插入 OrderDetail 資料表
 INSERT INTO OrderDetail (orderNo, productNo, quantityOrdered) VALUES
 (2001, 3001, 2),
 (2001, 3002, 1),
@@ -474,7 +466,6 @@ CREATE TABLE ShipmentMethod (
 );
 ```
 ```
--- 將資料插入 ShipmentMethod 資料表
 INSERT INTO ShipmentMethod (sMethodNo, shipmentMethod) VALUES
 (5001, '快遞'),
 (5002, '郵寄'),
@@ -498,7 +489,6 @@ CREATE TABLE Shipment (
 );
 ```
 ```
--- 將資料插入 Shipment 資料表
 INSERT INTO Shipment (shipmentNo, quantity, shipmentDate, completeStatus, orderNo, productNo, employeeNo, sMethodNo) VALUES
 (4001, 2, '2023-01-27', '完成', 2001, 3001, 101, 5001),
 (4002, 1, '2023-02-12', '完成', 2001, 3002, 102, 5002),
@@ -509,7 +499,6 @@ INSERT INTO Shipment (shipmentNo, quantity, shipmentDate, completeStatus, orderN
 
 ## 作業(Inventory control)
 ```
--- 建立 Employee 資料表
 CREATE TABLE Employee (
     employeeNo INT PRIMARY KEY,
     firstName VARCHAR(255),
@@ -517,7 +506,6 @@ CREATE TABLE Employee (
 );
 ```
 ```
--- 插入 Employee 資料
 INSERT INTO Employee (employeeNo, firstName, lastName) VALUES
     (1, '陳', '大文'),
     (2, '林', '靜宜'),
@@ -526,14 +514,12 @@ INSERT INTO Employee (employeeNo, firstName, lastName) VALUES
     (5, '李', '國華');
 ```
 ```
--- 建立 ProductCategory 資料表
 CREATE TABLE ProductCategory (
     categoryNo INT PRIMARY KEY,
     categoryDescription VARCHAR(255)
 );
 ```
 ```
--- 插入 ProductCategory 資料
 INSERT INTO ProductCategory (categoryNo, categoryDescription) VALUES
     (101, '服裝'),
     (102, '食品'),
@@ -542,7 +528,6 @@ INSERT INTO ProductCategory (categoryNo, categoryDescription) VALUES
     (105, '家具');
 ```
 ```
--- 建立 Supplier 資料表
 CREATE TABLE Supplier (
     supplierNo INT PRIMARY KEY,
     supplierName VARCHAR(255),
@@ -562,7 +547,6 @@ CREATE TABLE Supplier (
 );
 ```
 ```
--- 插入 Supplier 資料
 INSERT INTO Supplier (supplierNo, supplierName, supplierStreet, supplierCity, supplierState, supplierZipCode, suppTelNo, suppFaxNo, suppEmailAddress, suppWebAddress, contactName, contactTelNo, contactFaxNo, contactEmailAddress, paymentTerms) VALUES
     (201, 'AAA公司', '中山路一段100號', '台北市', '台北', '10000', '02-23456789', '02-23456788', 'abc@example.com', 'www.abccorp.com', '陳經理', '02-98765432', '02-98765433', 'contactA@example.com', '貨到付款'),
     (202, 'BBB公司', '中正路二段200號', '台中市', '台中', '40000', '04-22256789', '04-22256788', 'xyz@example.com', 'www.xyzinc.com', '林經理', '04-98765431', '04-98765432', 'contactB@example.com', '30天'),
@@ -571,7 +555,6 @@ INSERT INTO Supplier (supplierNo, supplierName, supplierStreet, supplierCity, su
     (205, 'EEE公司', '和平路二段500號', '桃園市', '桃園', '33000', '03-23987654', '03-23987655', 'rst@example.com', 'www.rstcorp.com', '李經理', '03-98765428', '03-98765429', 'contactE@example.com', '120天');
 ```
 ```
--- 建立 Product 資料表
 CREATE TABLE Product (
     productNo INT PRIMARY KEY,
     productName VARCHAR(255) NOT NULL,
@@ -586,7 +569,6 @@ CREATE TABLE Product (
 );
 ```
 ```
--- 插入 Product 資料
 INSERT INTO Product (productNo, productName, serialNo, unitPrice, quantityOnHand, reorderLevel, reorderQuantity, reorderLeadTime, categoryNo) VALUES
     (301, 'Ｔ恤', 'TS12345', 15.99, 100, 20, 50, 7, 101),
     (302, '牛仔褲', 'JN67890', 29.99, 50, 10, 30, 14, 101),
@@ -595,7 +577,6 @@ INSERT INTO Product (productNo, productName, serialNo, unitPrice, quantityOnHand
     (305, '椅子', 'CH86420', 75.00, 30, 10, 20, 14, 105);
 ```
 ```
--- 建立 PurchaseOrder 資料表
 CREATE TABLE PurchaseOrder (
     purchaseOrderNo INT PRIMARY KEY,
     purchaseOrderDescription VARCHAR(255),
@@ -610,7 +591,6 @@ CREATE TABLE PurchaseOrder (
 );
 ```
 ```
--- 插入 PurchaseOrder 資料
 INSERT INTO PurchaseOrder (purchaseOrderNo, purchaseOrderDescription, orderDate, dateRequired, shippedDate, freightCharge, supplierNo, employeeNo) VALUES
     (401, 'Ｔ恤訂單', '2024-01-10', '2024-01-20', '2024-01-18', 10.00, 201, 1),
     (402, '牛仔褲訂單', '2024-01-15', '2024-01-25', '2024-01-23', 15.00, 201, 2),
@@ -619,7 +599,6 @@ INSERT INTO PurchaseOrder (purchaseOrderNo, purchaseOrderDescription, orderDate,
     (405, '椅子訂單', '2024-02-10', '2024-02-20', '2024-02-18', 20.00, 205, 5);
 ```
 ```
--- 建立 Transaction 資料表
 CREATE TABLE `Transaction` (
     transactionNo INT PRIMARY KEY,
     transactionDate DATE,
@@ -636,7 +615,6 @@ CREATE TABLE `Transaction` (
 );
 ```
 ```
--- 插入 Transaction 資料
 INSERT INTO `Transaction` (transactionNo, transactionDate, transactionDescription, unitPrice, unitsOrdered, unitsReceived, unitsSold, unitsWastage, productNo, purchaseOrderNo) VALUES
     (501, '2024-01-18', 'Ｔ恤購買交易', 15.99, 100, 100, 80, 0, 301, 401),
     (502, '2024-01-23', '牛仔褲購買交易', 29.99, 50, 50, 40, 0, 302, 402),
