@@ -267,6 +267,8 @@ INSERT INTO Customer (customerNo, customerName, customerStreet, customerCity, cu
 (4, '陳六', '自由路一段400號', '高雄市', '高雄', '80000', '07-23678901', '07-23678902', '1985-07-10', '已婚', 'A'),
 (5, '林七', '和平路二段500號', '桃園市', '桃園', '33000', '03-23987654', '03-23987655', '1992-12-05', '未婚', 'BB');
 ```
+![image](https://github.com/user-attachments/assets/59d4cb46-e496-470c-a126-c0f16c0f1168)
+
 ```
 CREATE TABLE Employee (
 	employeeNo INT PRIMARY KEY,
@@ -294,6 +296,8 @@ INSERT INTO Employee (employeeNo, title, firstName, middleName, lastName, addres
 (104, '分析師', '張', NULL, '淑芬', '自由路一段400號, 高雄市, 台灣', '3456', '07-9876543213', 'sarah.williams@example.com', 'SSN78901', '1988-04-03', '分析師', '女', 45000.00, '2012-07-05'),
 (105, '技術員', '李', NULL, '國華', '和平路二段500號, 桃園市, 台灣', '7890', '03-9876543214', 'michael.brown@example.com', 'SSN34567', '1995-02-28', '技術員', '男', 35000.00, '2018-09-24');
 ```
+![image](https://github.com/user-attachments/assets/897b3e81-9d2b-4f50-93f9-c74663a7181a)
+
 ```
 CREATE TABLE `Order` (
 	orderNo INT PRIMARY KEY,
@@ -318,6 +322,8 @@ INSERT INTO `Order` (orderNo, orderDate, billingStreet, billingCity, billingStat
 (2004, '2023-03-10', '自由路一段400號', '高雄市', '高雄', '80000', '2023-03-17', '已出貨', 4, 101),
 (2005, '2023-03-28', '和平路二段500號', '桃園市', '桃園', '33000', '2023-04-04', '處理中', 5, 102);
 ```
+![image](https://github.com/user-attachments/assets/8da0760d-e9a7-468a-aee0-cf8973f56478)
+
 ```
 CREATE TABLE PaymentMethod (
 	pMethodNo INT PRIMARY KEY,
@@ -332,6 +338,8 @@ INSERT INTO PaymentMethod (pMethodNo, paymentMethod) VALUES
 (3004, '銀行轉帳'),
 (3005, '行動支付');
 ```
+![image](https://github.com/user-attachments/assets/9c22613c-7d87-421a-931f-c153a5e3bb8b)
+
 ```
 CREATE TABLE Invoice (
 	invoiceNo INT PRIMARY KEY,
@@ -354,6 +362,8 @@ INSERT INTO Invoice (invoiceNo, dateRaised, datePaid, creditCardNo, holdersName,
 (1004, '2023-03-15', '2023-03-20', '0987654321098765', '陳六', '2028-08-31', 2004, 3001),
 (1005, '2023-04-01', '2023-04-05', '4321098765432109', '林七', '2027-10-31', 2005, 3002);
 ```
+![image](https://github.com/user-attachments/assets/448a4920-6465-4d0c-af8e-f8e3a4b36502)
+
 ```
 CREATE TABLE Product (
 	productNo INT PRIMARY KEY,
@@ -374,6 +384,8 @@ INSERT INTO Product (productNo, productName, serialNo, unitPrice, quantityOnHand
 (3004, '產品 D', 'SN-13579', 120.00, 40, 8, 80, 7),
 (3005, '產品 E', 'SN-86420', 180.00, 25, 6, 60, 10);
 ```
+![image](https://github.com/user-attachments/assets/266e0c82-f7c8-443a-9e92-a68d17acad0b)
+
 ```
 CREATE TABLE OrderDetail (
 	orderNo INT,
@@ -392,6 +404,8 @@ INSERT INTO OrderDetail (orderNo, productNo, quantityOrdered) VALUES
 (2003, 3001, 1),
 (2003, 3004, 2);
 ```
+![image](https://github.com/user-attachments/assets/bf424799-4ee4-489f-863e-cbff212fafc2)
+
 ```
 CREATE TABLE ShipmentMethod (
 	sMethodNo INT PRIMARY KEY,
@@ -406,6 +420,8 @@ INSERT INTO ShipmentMethod (sMethodNo, shipmentMethod) VALUES
 (5004, '自取'),
 (5005, '航空');
 ```
+![image](https://github.com/user-attachments/assets/d48cf2e6-db45-4989-9357-0616a5eefac6)
+
 ```
 CREATE TABLE Shipment (
 	shipmentNo INT PRIMARY KEY,
@@ -429,6 +445,8 @@ INSERT INTO Shipment (shipmentNo, quantity, shipmentDate, completeStatus, orderN
 (4004, 2, '2023-03-17', '完成', 2003, 3001, 101, 5002),
 (4005, 1, '2023-04-04', '未完成', 2003, 3004, 102, 5001);
 ```
+![image](https://github.com/user-attachments/assets/e6bf2319-768b-4156-a69f-9762e15252fc)
+
 
 ## 作業(Inventory control)
 ```
