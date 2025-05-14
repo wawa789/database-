@@ -167,21 +167,6 @@ CREATE TABLE appointment (
     INDEX idx_status (status)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
-## 使用者帳號表
-```
-CREATE TABLE user (
-    username VARCHAR(50) PRIMARY KEY,
-    password VARCHAR(100) NOT NULL,
-    user_type ENUM('patient', 'doctor', 'admin') NOT NULL,
-    doctor_id INT,
-    patient_id INT,
-    medical_record_id INT,
-    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
-    FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
-    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
-    INDEX idx_user_type (user_type)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-```
 
 ## 新增病患資料
 ```
@@ -217,55 +202,6 @@ INSERT INTO appointment (medical_record_id, doctor_id, appointment_time, status)
 (3, 1, '2025-05-11 09:30:00', 'scheduled');
 ```
 
-## 新增管理員帳號密碼資料
-```
-INSERT INTO user (username, password, user_type)
-VALUES ('admin', 'admin123', 'admin');
-```
-
-## 新增病患帳號密碼資料
-```
-INSERT INTO user (username, password, user_type, patient_id)
-SELECT
-    CASE p.name
-        WHEN '王小明' THEN 'pt_wang'
-        WHEN '李美麗' THEN 'pt_lee'
-        WHEN '陳建宏' THEN 'pt_chen'
-        WHEN '黃凱婷' THEN 'pt_huang'
-        WHEN '林靜怡' THEN 'pt_lin'
-    END AS username,
-    CASE p.name
-        WHEN '王小明' THEN 'wang456'
-        WHEN '李美麗' THEN 'lee789'
-        WHEN '陳建宏' THEN 'chen321'
-        WHEN '黃凱婷' THEN 'huang111'
-        WHEN '林靜怡' THEN 'lin555'
-    END AS password,
-    'patient',
-    p.patient_id
-FROM patient p
-WHERE p.name IN ('王小明', '李美麗', '陳建宏', '黃凱婷', '林靜怡');
-```
-
-## 新增醫生帳號密碼資料
-```
-INSERT INTO user (username, password, user_type, doctor_id)
-SELECT
-    CASE d.name
-        WHEN '林文雄' THEN 'dr_lin'
-        WHEN '黃信誠' THEN 'dr_huang'
-        WHEN '蔡宜君' THEN 'dr_tsai'
-    END AS username,
-    CASE d.name
-        WHEN '林文雄' THEN 'lin999'
-        WHEN '黃信誠' THEN 'huang123'
-        WHEN '蔡宜君' THEN 'tsai888'
-    END AS password,
-    'doctor',
-    d.doctor_id
-FROM doctor d
-WHERE d.name IN ('林文雄', '黃信誠', '蔡宜君');
-```
 
 ## 建立檢視表為醫生可以看到的資訊
 ```
