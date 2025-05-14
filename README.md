@@ -69,9 +69,6 @@
 
 ![image](https://github.com/user-attachments/assets/14c9b878-ac34-4d7c-89ba-f6b81cd767a9)
 
-## user表 (使用者帳號密碼資料表)
-
-![image](https://github.com/user-attachments/assets/7f685006-06e3-48b8-a1f9-06fd8fe20f86)
 
 
 ---
