@@ -464,6 +464,8 @@ INSERT INTO Employee (employeeNo, firstName, lastName) VALUES
     (4, '張', '淑芬'),
     (5, '李', '國華');
 ```
+![image](https://github.com/user-attachments/assets/0150607e-0b8d-4320-a3b4-f492fef873cc)
+
 ```
 CREATE TABLE ProductCategory (
     categoryNo INT PRIMARY KEY,
@@ -478,6 +480,8 @@ INSERT INTO ProductCategory (categoryNo, categoryDescription) VALUES
     (104, '書籍'),
     (105, '家具');
 ```
+![image](https://github.com/user-attachments/assets/96a99e1e-da6b-4617-8ccd-b28665d7f5c7)
+
 ```
 CREATE TABLE Supplier (
     supplierNo INT PRIMARY KEY,
@@ -505,6 +509,8 @@ INSERT INTO Supplier (supplierNo, supplierName, supplierStreet, supplierCity, su
     (204, 'DDD有限公司', '自由路一段400號', '高雄市', '高雄', '80000', '07-23678901', '07-23678902', 'lmn@example.com', 'www.lmnltd.com', '張經理', '07-98765429', '07-98765430', 'contactD@example.com', '90天'),
     (205, 'EEE公司', '和平路二段500號', '桃園市', '桃園', '33000', '03-23987654', '03-23987655', 'rst@example.com', 'www.rstcorp.com', '李經理', '03-98765428', '03-98765429', 'contactE@example.com', '120天');
 ```
+![image](https://github.com/user-attachments/assets/582de359-666c-47bf-9082-aa7c4640689a)
+
 ```
 CREATE TABLE Product (
     productNo INT PRIMARY KEY,
@@ -527,6 +533,8 @@ INSERT INTO Product (productNo, productName, serialNo, unitPrice, quantityOnHand
     (304, '書', 'BK13579', 19.95, 100, 25, 75, 7, 104),
     (305, '椅子', 'CH86420', 75.00, 30, 10, 20, 14, 105);
 ```
+![image](https://github.com/user-attachments/assets/0e692138-f302-49ee-835b-9f4723108131)
+
 ```
 CREATE TABLE PurchaseOrder (
     purchaseOrderNo INT PRIMARY KEY,
@@ -549,6 +557,8 @@ INSERT INTO PurchaseOrder (purchaseOrderNo, purchaseOrderDescription, orderDate,
     (404, '書本訂單', '2024-02-05', '2024-02-15', '2024-02-12', 5.00, 204, 4),
     (405, '椅子訂單', '2024-02-10', '2024-02-20', '2024-02-18', 20.00, 205, 5);
 ```
+![image](https://github.com/user-attachments/assets/6a19d32b-fd7d-4810-a786-cffee73150fd)
+
 ```
 CREATE TABLE `Transaction` (
     transactionNo INT PRIMARY KEY,
@@ -573,6 +583,7 @@ INSERT INTO `Transaction` (transactionNo, transactionDate, transactionDescriptio
     (504, '2024-02-12', '書本購買交易', 19.95, 75, 75, 60, 0, 304, 404),
     (505, '2024-02-18', '椅子購買交易', 75.00, 20, 20, 10, 0, 305, 405);
 ```
+![image](https://github.com/user-attachments/assets/b4c75724-0f2a-428e-ab8d-6f51004d60dc)
 
 
 ## 簡報
