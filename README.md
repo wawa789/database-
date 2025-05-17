@@ -94,7 +94,13 @@
 ![image](https://github.com/user-attachments/assets/763de2c5-cae5-4c2b-b8f1-165b5f138885)
 ## ER Diagram
 
-![Image](https://github.com/user-attachments/assets/9984557d-b23c-47c0-a3f7-c778ead34ba4)
+實體與關連的摘要圖
+
+![Image](https://github.com/user-attachments/assets/5a31f220-78db-40a2-b906-dfe7f39c10f0)
+
+詳細全圖
+
+![Image](https://github.com/user-attachments/assets/5d4e8677-944a-4167-8bee-d2175a3e5e43)
 
 用戶
 
