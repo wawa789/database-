@@ -129,132 +129,192 @@
 ## 病患資料表
 ```
 CREATE TABLE patient (
-    patient_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    phone VARCHAR(20),
+    patient_id INTEGER PRIMARY KEY,
+    national_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    gender TEXT CHECK(gender IN ('男', '女')),
     birth_date DATE,
-    gender VARCHAR(2) CHECK (gender IN ('M', 'F')),
-    national_id CHAR(10) UNIQUE,  
-    resident_id CHAR(10) UNIQUE,  
-    INDEX idx_patient_name (name),
-    INDEX idx_birth_date (birth_date)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    phone TEXT
+);
 ```
 
 ## 醫生資料表
 ```
 CREATE TABLE doctor (
-    doctor_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    specialty VARCHAR(50),
-    phone VARCHAR(20),
-    INDEX idx_doctor_specialty (specialty)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    doctor_id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    specialty TEXT NOT NULL,
+    phone TEXT
+);
 ```
 
 ## 病歷表
 ```
 CREATE TABLE medical_record (
-    medical_record_id INT PRIMARY KEY AUTO_INCREMENT,
-    patient_id INT NOT NULL,
+    medical_record_id INTEGER PRIMARY KEY,
+    patient_id INTEGER,
     diagnosis_record TEXT,
-    last_visit_date DATE,
-    FOREIGN KEY (patient_id) REFERENCES patient(patient_id) ON DELETE CASCADE,
-    INDEX idx_last_visit (last_visit_date)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    last_visits_date DATE,
+    FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
+);
 ```
 
 ## 預約表
 ```
 CREATE TABLE appointment (
-    appointment_id INT PRIMARY KEY AUTO_INCREMENT,
-    medical_record_id INT NOT NULL,
-    doctor_id INT NOT NULL,
-    appointment_time DATETIME NOT NULL,
-    status VARCHAR(20) DEFAULT 'scheduled',
-    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id) ON DELETE CASCADE,
-    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
-    INDEX idx_appointment_time (appointment_time),
-    INDEX idx_status (status)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    appointment_id INTEGER PRIMARY KEY,
+    medicalRecord_id INTEGER,
+    doctor_id INTEGER,
+    status TEXT,
+    appointment_time TEXT,
+    FOREIGN KEY (medicalRecord_id) REFERENCES medical_record(medical_record_id),
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
+);
+```
+
+## 醫生排班表
+```
+CREATE TABLE schedule (
+    schedule_id INTEGER PRIMARY KEY,
+    doctor_id INTEGER,
+    schedule_date DATE,
+    schedule_time TEXT,
+    week TEXT,
+    schedule_status TEXT,
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
+);
 ```
 
 ## 新增病患資料
 ```
-INSERT INTO patient (name, phone, birth_date, gender, national_id, resident_id) VALUES
-('王小明', '0912345678', '1990-01-15', 'M', 'A123456789', NULL),
-('李美麗', '0922333444', '1985-06-28', 'F', 'B223456789', NULL),
-('陳建宏', '0933221144', '1975-12-02', 'M', 'C123456789', NULL),
-('黃凱婷', '0955667788', '1992-04-10', 'F', NULL, 'A800000001'),
-('林靜怡', '0966112233', '2000-08-20', 'F', NULL, 'A900000002');
+
+INSERT INTO patient (patient_id, national_id, name, gender, birth_date, phone) VALUES
+(1, 'A123456789', '陳玉華', '女', '1970-10-24', '0912100200'),
+(2, 'B234567890', '黃志明', '男', '1985-12-25', '0922200300'),
+(3, 'C345678901', '林淑芬', '女', '1986-02-22', '0933300400'),
+(4, 'D456789012', '張文龍', '男', '1975-04-11', '0944400500'),
+(5, 'E567890123', '李玉美', '女', '1955-07-14', '0955500600'),
+(6, 'F678901234', '王志誠', '男', '1995-11-14', '0966600700'),
+(7, 'G789012345', '吳佩珊', '女', '2018-07-21', '0977700800'),
+(8, 'H890123456', '趙信宏', '男', '1983-08-24', '0988800900'),
+(9, 'I901234567', '劉文昌', '男', '1988-12-09', '0999900000'),
+(10, 'J012345678', '葉秋萍', '女', '1985-10-08', '0900111222');
 ```
 
 ## 新增醫生資料
 ```
-INSERT INTO doctor (name, specialty, phone) VALUES
-('林文雄', '牙科矯正', '0288776655'),
-('黃信誠', '口腔外科', '0277889900'),
-('蔡宜君', '兒童牙科', '0222113344');
+
+INSERT INTO doctor (doctor_id, name, specialty, phone) VALUES
+(1, '王大明', '牙科', '0932716195'),
+(2, '李小美', '牙科', '0910775159'),
+(3, '陳志強', '牙科', '0984593191'),
+(4, '林慧君', '牙科', '0968202494'),
+(5, '張建宏', '牙科', '0911858069'),
+(6, '吳佩琪', '牙科', '0961519171'),
+(7, '周俊豪', '牙科', '0977834772'),
+(8, '鄭雅芳', '牙科', '0970379877'),
+(9, '何文豪', '牙科', '0980671879'),
+(10, '劉曉婷', '牙科', '0968500959');
 ```
 
 ## 新增病歷資料
 ```
-INSERT INTO medical_record (patient_id, diagnosis_record, last_visit_date) VALUES
-(1, '蛀牙治療，補牙完成', '2024-12-15'),
-(2, '智齒拔除後恢復良好', '2025-03-20'),
-(3, '牙齒矯正第一階段結束', '2025-01-10');
+INSERT INTO medical_record (medical_record_id, patient_id, diagnosis_record, last_visits_date) VALUES
+(1, 1, '蛀牙', '2024-08-07'),
+(2, 2, '牙周病', '2024-04-21'),
+(3, 3, '智齒拔除', '2024-09-04'),
+(4, 4, '牙齒美白', '2024-03-27'),
+(5, 5, '洗牙', '2023-11-19'),
+(6, 6, '牙齒矯正', '2024-02-14'),
+(7, 7, '補牙', '2024-03-13'),
+(8, 8, '牙齦炎', '2023-09-17'),
+(9, 9, '牙齒裂痕', '2024-07-15'),
+(10, 10, '牙冠製作', '2023-01-13');
+```
+
+## 新增醫生排班資料
+
+```
+INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week, schedule_status) VALUES
+(1, 1, '2025-05-21', '09:00', '星期一', '正常'),
+(2, 2, '2025-05-22', '10:00', '星期二', '正常'),
+(3, 3, '2025-05-23', '11:00', '星期三', '正常'),
+(4, 4, '2025-05-24', '14:00', '星期四', '停診'),
+(5, 5, '2025-05-25', '13:00', '星期五', '正常'),
+(6, 6, '2025-05-26', '15:00', '星期一', '正常'),
+(7, 7, '2025-05-27', '10:00', '星期二', '正常'),
+(8, 8, '2025-05-28', '16:00', '星期三', '停診'),
+(9, 9, '2025-05-29', '11:00', '星期四', '正常'),
+(10, 10, '2025-05-30', '09:00', '星期五', '正常');
 ```
 
 ## 新增預約表資料
 ```
-INSERT INTO appointment (medical_record_id, doctor_id, appointment_time, status) VALUES
-(1, 1, '2025-05-10 10:00:00', 'scheduled'),
-(2, 2, '2025-05-08 14:00:00', 'completed'),
-(3, 1, '2025-05-11 09:30:00', 'scheduled');
+INSERT INTO appointment (appointment_id, medicalRecord_id, doctor_id, status, appointment_time) VALUES
+(1, 1, 1, '已預約', '09:00'),
+(2, 2, 2, '完成', '10:00'),
+(3, 3, 3, '取消', '11:00'),
+(4, 4, 4, '已預約', '14:00'),
+(5, 5, 5, '已預約', '13:00'),
+(6, 6, 6, '完成', '15:00'),
+(7, 7, 7, '已預約', '10:00'),
+(8, 8, 8, '取消', '16:00'),
+(9, 9, 9, '完成', '11:00'),
+(10, 10, 10, '已預約', '09:00');
 ```
+
+
 
 
 ## 建立檢視表為醫生可以看到的資訊
 ```
-CREATE VIEW view_doctor_schedule AS
-SELECT d.name AS doctor_name, p.name AS patient_name, a.appointment_time, mr.diagnosis_record
-FROM appointment a
-JOIN doctor d ON a.doctor_id = d.doctor_id
-JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
-JOIN patient p ON mr.patient_id = p.patient_id;
-```
 
-## 建立檢視表為管理員可以看到資訊
-```
-CREATE OR REPLACE VIEW view_user_summary AS
+
+CREATE OR REPLACE VIEW view_doctor_appointments AS
 SELECT 
-    -- 病患資訊
-    p.patient_id,
-    p.name AS patient_name,
-    p.phone AS patient_phone,
-    p.national_id,
-    p.resident_id,
-    
-    -- 醫生資訊
-    d.doctor_id,
-    d.name AS doctor_name,
-    d.specialty,
-    d.phone AS doctor_phone
+    d.doctor_id AS 醫師編號,
+    d.name AS 醫師姓名,
+    p.name AS 病人姓名,
+    p.phone AS 病人電話,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.last_visits_date AS 最近就診日期
+FROM 
+    doctor d
+JOIN 
+    appointment a ON d.doctor_id = a.doctor_id
+JOIN 
+    medical_record mr ON a.medicalRecord_id = mr.medical_record_id
+JOIN 
+    patient p ON mr.patient_id = p.patient_id;
 
-FROM user u
-LEFT JOIN patient p ON u.patient_id = p.patient_id
-LEFT JOIN doctor d ON u.doctor_id = d.doctor_id;
 ```
+
 
 ## 建立檢視表為病患可以看到的資訊
 ```
-CREATE VIEW view_patient_record AS
-SELECT u.username, p.name AS patient_name, mr.diagnosis_record, a.appointment_time
-FROM user u
-JOIN patient p ON u.patient_id = p.patient_id
-JOIN medical_record mr ON mr.patient_id = p.patient_id
-JOIN appointment a ON a.medical_record_id = mr.medical_record_id
-WHERE u.user_type = 'patient';
+
+
+CREATE OR REPLACE VIEW view_patient_appointments AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    d.name AS 醫師姓名,
+    d.specialty AS 專科,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.last_visits_date AS 最近就診日期
+FROM 
+    patient p
+JOIN 
+    medical_record mr ON p.patient_id = mr.patient_id
+JOIN 
+    appointment a ON mr.medical_record_id = a.medicalRecord_id
+JOIN 
+    doctor d ON a.doctor_id = d.doctor_id;
+
 ```
 
 ## 作業(Customer order entry)
