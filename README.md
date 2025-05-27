@@ -55,7 +55,7 @@
 
 ## patients 表（病患資料表）
 
-![image](https://github.com/user-attachments/assets/fa8a0542-79df-4943-b29f-716f2ec601e0)
+![image](https://github.com/user-attachments/assets/cb0d9a71-174b-4554-902e-59dffaf37451)
 
 
 ## doctors 表（醫生資料表）
