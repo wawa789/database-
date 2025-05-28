@@ -165,11 +165,11 @@ CREATE TABLE medical_record (
 ```
 CREATE TABLE appointment (
     appointment_id INTEGER PRIMARY KEY,
-    medicalRecord_id INTEGER,
+    medical_record_id INTEGER,
     doctor_id INTEGER,
     status TEXT,
     appointment_time TEXT,
-    FOREIGN KEY (medicalRecord_id) REFERENCES medical_record(medical_record_id),
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
 ```
@@ -252,7 +252,7 @@ INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week
 
 ## 新增預約表資料
 ```
-INSERT INTO appointment (appointment_id, medicalRecord_id, doctor_id, status, appointment_time) VALUES
+INSERT INTO appointment (appointment_id, medical_record_id, doctor_id, status, appointment_time) VALUES
 (2025-04-21-001, 1, D-001, '已預約', '2025-05-21 09:00'),
 (2025-04-22-002, 2, D-002, '已完成', '2025-05-22 10:00'),
 (2025-04-23-003, 3, D-003, '取消', '2025-05-23 11:00'),
@@ -287,7 +287,7 @@ FROM
 JOIN 
     appointment a ON d.doctor_id = a.doctor_id
 JOIN 
-    medical_record mr ON a.medicalRecord_id = mr.medical_record_id
+    medical_record mr ON a.medical_record_id = mr.medical_record_id
 JOIN 
     patient p ON mr.patient_id = p.patient_id;
 
@@ -313,7 +313,7 @@ FROM
 JOIN 
     medical_record mr ON p.patient_id = mr.patient_id
 JOIN 
-    appointment a ON mr.medical_record_id = a.medicalRecord_id
+    appointment a ON mr.medical_record_id = a.medical_record_id
 JOIN 
     doctor d ON a.doctor_id = d.doctor_id;
 
