@@ -327,7 +327,69 @@ JOIN
     doctor d ON a.doctor_id = d.doctor_id;
 
 ```
-
+# 病患查看醫生排班
+```CREATE OR REPLACE VIEW view_schedule AS
+SELECT
+    s.schedule_date AS 日期,
+    s.week AS 星期,
+    s.schedule_time AS 時段,
+    d.name AS 醫師姓名,
+    d.specialty AS 專科,
+    s.schedule_status AS 狀態
+FROM 
+    schedule s
+JOIN 
+    doctor d ON s.doctor_id = d.doctor_id;
+```
+# 授權 病患
+```
+GRANT SELECT,INSERT, UPDATE ON patient TO Patient_Account;
+GRANT INSERT, UPDATE  (appointment_time,appointment_status) ON appointment  TO Patient_Account ;
+GRANT SELECT ON view_patient_appointment TO Patient_Account ;
+GRANT SELECT ON view_schedule TO Patient_Account ;
+```
+# 醫生查看歷史病歷
+```
+CREATE OR REPLACE VIEW view_doctor_medical_record AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 就診紀錄,
+    mr.last_visits_date AS 就診日期
+FROM 
+    patient p
+JOIN 
+    medical_record mr ON p.patient_id = mr.patient_id;
+ORDER BY 
+    a.appointment_time DESC;
+```
+# 醫生查看排班
+```
+CREATE OR REPLACE VIEW view_schedule AS
+SELECT
+    s.schedule_date AS 日期,
+    s.week AS 星期,
+    s.schedule_time AS 時段,
+    d.name AS 醫師姓名,
+    d.specialty AS 專科,
+    s.schedule_status AS 狀態
+FROM 
+    schedule s
+JOIN 
+    doctor d ON s.doctor_id = d.doctor_id;
+```
+# 授權
+# 醫生
+```
+GRANT SELECT,INSERT, UPDATE ON medical_record TO Doctor_Account;
+GRANT SELECT ON view_doctor_appointment TO Doctor_Account ;
+GRANT SELECT ON view_schedule TO Doctor_Account ;
+```
+# 管理者
+```
+GRANT ALL PRIVILEGES ON clinic_db.* TO Admin_Account;
+```
 ## 作業(Customer order entry)
 ```
 CREATE TABLE Customer (
