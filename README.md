@@ -177,6 +177,7 @@ CREATE TABLE appointment (
     appointment_time TEXT,
     medical_record_id VARCHAR(30),
     clinic VARCHAR(10),
+    number VARCHAR(10),
     FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
@@ -262,17 +263,17 @@ INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week
 
 ## 新增預約表資料
 ```
-INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointment_time, clinic) VALUES
-('2025-04-21-001', 'P-2024-01', 'D-001', '已預約', '2025-05-21 09:00','101診間'),
-('2025-04-22-002', 'P-2024-02', 'D-002', '已完成', '2025-05-22 10:00','101診間'),
-('2025-04-23-003', 'P-2024-03', 'D-003', '取消', '2025-05-23 11:00','101診間'),
-('2025-04-24-004', 'P-2024-04', 'D-004', '已預約', '2025-05-24 14:00','102診間'),
-('2025-04-25-005', 'P-2024-05', 'D-005', '已預約', '2025-05-25 13:00','102診間'),
-('2025-04-26-006', 'P-2024-06', 'D-006', '已完成', '2025-05-26 15:00','103診間'),
-('2025-04-27-007', 'P-2024-07', 'D-007', '已預約', '2025-05-27 10:00','103診間'),
-('2025-04-28-008', 'P-2024-08', 'D-008', '取消', '2025-05-28 16:00','103診間'),
-('2025-04-29-009', 'P-2024-09', 'D-009', '已完成', '2025-05-29 11:00','104診間'),
-('2025-04-30-010', 'P-2024-10','D-010', '已預約', '2025-05-30 09:00','104診間');
+INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointment_time, clinic, number) VALUES
+('2025-04-21-001', 'P-2024-01', 'D-001', '已預約', '2025-05-21 09:00','101診間','1號'),
+('2025-04-22-002', 'P-2024-02', 'D-002', '已完成', '2025-05-22 10:00','101診間','NULL'),
+('2025-04-23-003', 'P-2024-03', 'D-003', '取消', '2025-05-23 11:00','101診間','NULL'),
+('2025-04-24-004', 'P-2024-04', 'D-004', '已預約', '2025-05-24 14:00','102診間','1號'),
+('2025-04-25-005', 'P-2024-05', 'D-005', '已預約', '2025-05-25 13:00','102診間','1號'),
+('2025-04-26-006', 'P-2024-06', 'D-006', '已完成', '2025-05-26 15:00','103診間','NULL'),
+('2025-04-27-007', 'P-2024-07', 'D-007', '已預約', '2025-05-27 10:00','103診間','1號'),
+('2025-04-28-008', 'P-2024-08', 'D-008', '取消', '2025-05-28 16:00','103診間','NULL'),
+('2025-04-29-009', 'P-2024-09', 'D-009', '已完成', '2025-05-29 11:00','104診間','NULL'),
+('2025-04-30-010', 'P-2024-10','D-010', '已預約', '2025-05-30 09:00','104診間','1號');
 ```
 
 
@@ -397,25 +398,24 @@ GRANT ALL PRIVILEGES ON clinic_db.* TO Admin_Account;
 ## 創建儲存密碼資料表
 ```
 CREATE TABLE auth_db.users (
-    patient_id VARCHAR(30) PRIMARY KEY,
+    name VARCHAR(10) NOT NULL,
     ssid VARCHAR(10) NOT NULL,
-    password VARCHAR(10) NOT NULL,
-FOREIGN KEY (patient_id) REFERENCES hw3.patient(patient_id)
+    password VARCHAR(10) NOT NULL
 );
 ```
 ## 建立每個病患密碼
 ```
-INSERT INTO auth_db.users (ssid, patient_id, password) VALUES
-('陳玉華', 'P-2024-01', 'A225190428'),
-('黃志明', 'P-2024-02', 'B109235501'),
-('林淑芬', 'P-2024-03', 'C274705806'),
-('張文龍', 'P-2024-04', 'D117815766'),
-('李玉美', 'P-2024-05', 'E253941742'),
-('王志誠', 'P-2024-06', 'F110994720'),
-('吳佩珊', 'P-2024-07', 'G231160530'),
-('趙信宏', 'P-2023-08', 'H131347152'),
-('劉文昌', 'P-2023-09', 'I148658852'),
-('葉秋萍', 'P-2024-10', 'J260542851');
+INSERT INTO auth_db.users (name, ssid , password) VALUES
+('陳玉華', '19701024',  'A225190428'),
+('黃志明', '19851225',  'B109235501'),
+('林淑芬', '19860222',  'C274705806'),
+('張文龍', '19750411',  'D117815766'),
+('李玉美', '19550714',  'E253941742'),
+('王志誠', '19951114',  'F110994720'),
+('吳佩珊', '20180721',  'G231160530'),
+('趙信宏', '19830824',  'H131347152'),
+('劉文昌', '19881209', 'I148658852'),
+('葉秋萍', '19851008', 'J260542851');
 ```
 
 ## 每個病患可以看見自己的預約結果(這邊以陳玉華病患作為範例)
@@ -425,6 +425,7 @@ SELECT
     a.appointment_time,
     a.status AS appointment_status,
     a.clinic AS appointment_clinic,
+    a.number AS appointment_number,
     d.name AS doctor_name,
     d.specialty AS doctor_specialty
 FROM
@@ -434,7 +435,7 @@ JOIN
 JOIN
     auth_db.users AS u ON a.patient_id = u.patient_id -- 這裡將 auth_db.users 和 hw3.appointment JOIN 起來
 WHERE
-    u.ssid = '陳玉華' AND u.password = 'A225190428';
+    u.ssid = '19701024' AND u.password = 'A225190428';
 ```
 
 ## 作業(Customer order entry)
