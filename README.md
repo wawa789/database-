@@ -432,8 +432,6 @@ FROM
     hw3.appointment AS a
 JOIN
     hw3.doctor AS d ON a.doctor_id = d.doctor_id
-JOIN
-    auth_db.users AS u ON a.patient_id = u.patient_id -- 這裡將 auth_db.users 和 hw3.appointment JOIN 起來
 WHERE
     u.ssid = '19701024' AND u.password = 'A225190428';
 ```
