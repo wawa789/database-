@@ -494,6 +494,7 @@ SELECT
     a.clinic AS appointment_clinic,
     a.number AS appointment_number,
     d.name AS doctor_name,
+    d.doctor_id,
     d.specialty AS doctor_specialty
 FROM
     hw3.appointment AS a
@@ -501,8 +502,10 @@ JOIN
     hw3.doctor AS d ON a.doctor_id = d.doctor_id
 JOIN
     auth_db.patients AS u ON a.patient_id = u.patient_id
+JOIN
+    auth_db.doctors AS do ON d.doctor_id = do.doctor_id
 WHERE
-    u.ssid = 'D001' AND u.password = '0932716195';
+    do.ssid = 'D001' AND do.password = '0932716195';
 ```
 
 ## 作業(Customer order entry)
