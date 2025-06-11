@@ -175,7 +175,8 @@ CREATE TABLE appointment (
     doctor_id VARCHAR(30),
     status TEXT,
     appointment_time TEXT,
-    medical_record_id VARCHAR(30), -- 新增 medical_record_id 欄位
+    medical_record_id VARCHAR(30),
+    clinic VARCHAR(10),
     FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
@@ -261,17 +262,17 @@ INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week
 
 ## 新增預約表資料
 ```
-INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointment_time) VALUES
-('2025-04-21-001', 'P-2024-01', 'D-001', '已預約', '2025-05-21 09:00'),
-('2025-04-22-002', 'P-2024-02', 'D-002', '已完成', '2025-05-22 10:00'),
-('2025-04-23-003', 'P-2024-03', 'D-003', '取消', '2025-05-23 11:00'),
-('2025-04-24-004', 'P-2024-04', 'D-004', '已預約', '2025-05-24 14:00'),
-('2025-04-25-005', 'P-2024-05', 'D-005', '已預約', '2025-05-25 13:00'),
-('2025-04-26-006', 'P-2024-06', 'D-006', '已完成', '2025-05-26 15:00'),
-('2025-04-27-007', 'P-2024-07', 'D-007', '已預約', '2025-05-27 10:00'),
-('2025-04-28-008', 'P-2024-08', 'D-008', '取消', '2025-05-28 16:00'),
-('2025-04-29-009', 'P-2024-09', 'D-009', '已完成', '2025-05-29 11:00'),
-('2025-04-30-010', 'P-2024-10','D-010', '已預約', '2025-05-30 09:00');
+INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointment_time, clinic) VALUES
+('2025-04-21-001', 'P-2024-01', 'D-001', '已預約', '2025-05-21 09:00','101診間'),
+('2025-04-22-002', 'P-2024-02', 'D-002', '已完成', '2025-05-22 10:00','101診間'),
+('2025-04-23-003', 'P-2024-03', 'D-003', '取消', '2025-05-23 11:00','101診間'),
+('2025-04-24-004', 'P-2024-04', 'D-004', '已預約', '2025-05-24 14:00','102診間'),
+('2025-04-25-005', 'P-2024-05', 'D-005', '已預約', '2025-05-25 13:00','102診間'),
+('2025-04-26-006', 'P-2024-06', 'D-006', '已完成', '2025-05-26 15:00','103診間'),
+('2025-04-27-007', 'P-2024-07', 'D-007', '已預約', '2025-05-27 10:00','103診間'),
+('2025-04-28-008', 'P-2024-08', 'D-008', '取消', '2025-05-28 16:00','103診間'),
+('2025-04-29-009', 'P-2024-09', 'D-009', '已完成', '2025-05-29 11:00','104診間'),
+('2025-04-30-010', 'P-2024-10','D-010', '已預約', '2025-05-30 09:00','104診間');
 ```
 
 
@@ -423,6 +424,7 @@ SELECT
     a.appointment_id,
     a.appointment_time,
     a.status AS appointment_status,
+    a.clinic AS appointment_clinic,
     d.name AS doctor_name,
     d.specialty AS doctor_specialty
 FROM
