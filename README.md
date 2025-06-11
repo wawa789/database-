@@ -412,7 +412,7 @@ GRANT ALL PRIVILEGES ON clinic_db.* TO Admin_Account;
 ## 儲存密碼資料庫
 ## 創建儲存密碼資料表
 ```
-CREATE TABLE auth_db.users (
+CREATE TABLE auth_db.patients (
     patient_id VARCHAR(30) PRIMARY KEY,
     name VARCHAR(10) NOT NULL,
     ssid VARCHAR(10) NOT NULL,
@@ -422,7 +422,7 @@ FOREIGN KEY (patient_id) REFERENCES hw3.patient(patient_id)
 ```
 ## 建立每個病患密碼
 ```
-INSERT INTO auth_db.users (patient_id, name, ssid , password) VALUES
+INSERT INTO auth_db.patients (patient_id, name, ssid , password) VALUES
 ('P-2024-01', '陳玉華', '19701024',  'A225190428'),
 ('P-2024-02', '黃志明', '19851225',  'B109235501'),
 ('P-2024-03', '林淑芬', '19860222',  'C274705806'),
@@ -455,9 +455,54 @@ FROM
 JOIN
     hw3.doctor AS d ON a.doctor_id = d.doctor_id
 JOIN
-    auth_db.users AS u ON a.patient_id = u.patient_id
+    auth_db.patients AS u ON a.patient_id = u.patient_id
 WHERE
     u.ssid = '19701024' AND u.password = 'A225190428';
+```
+
+## 建立每個醫生密碼
+```
+CREATE TABLE auth_db.doctors (
+    doctor_id VARCHAR(30) PRIMARY KEY,
+    name VARCHAR(10) NOT NULL,
+    ssid VARCHAR(10) NOT NULL,
+    password VARCHAR(10) NOT NULL,
+FOREIGN KEY (doctor_id) REFERENCES hw3.doctor(doctor_id)
+);
+```
+## 建立每個醫生密碼
+```
+INSERT INTO auth_db.doctors (doctor_id, name, ssid , password) VALUES
+('D-001', '王大明', 'D001', '0932716195'),
+('D-002', '李小美', 'D002', '0910775159'),
+('D-003', '陳志強', 'D003', '0984593191'),
+('D-004', '林慧君', 'D004', '0968202494'),
+('D-005', '張建宏', 'D005', '0911858069'),
+('D-006', '吳佩琪', 'D006', '0961519171'),
+('D-007', '周俊豪', 'D007', '0977834772'),
+('D-008', '鄭雅芳', 'D008', '0970379877'),
+('D-009', '何文豪', 'D009', '0980671879'),
+('D-010', '劉曉婷', 'D010', '0968500959');
+```
+
+## 每個醫生可以看見病人預約自己的結果(這邊以王大明醫生作為範例)
+```
+SELECT
+    a.appointment_id,
+    a.appointment_time,
+    a.status AS appointment_status,
+    a.clinic AS appointment_clinic,
+    a.number AS appointment_number,
+    d.name AS doctor_name,
+    d.specialty AS doctor_specialty
+FROM
+    hw3.appointment AS a
+JOIN
+    hw3.doctor AS d ON a.doctor_id = d.doctor_id
+JOIN
+    auth_db.patients AS u ON a.patient_id = u.patient_id
+WHERE
+    u.ssid = 'D001' AND u.password = '0932716195';
 ```
 
 ## 作業(Customer order entry)
