@@ -398,24 +398,26 @@ GRANT ALL PRIVILEGES ON clinic_db.* TO Admin_Account;
 ## 創建儲存密碼資料表
 ```
 CREATE TABLE auth_db.users (
+    patient_id VARCHAR(30) PRIMARY KEY,
     name VARCHAR(10) NOT NULL,
     ssid VARCHAR(10) NOT NULL,
-    password VARCHAR(10) NOT NULL
+    password VARCHAR(10) NOT NULL,
+FOREIGN KEY (patient_id) REFERENCES hw3.patient(patient_id)
 );
 ```
 ## 建立每個病患密碼
 ```
-INSERT INTO auth_db.users (name, ssid , password) VALUES
-('陳玉華', '19701024',  'A225190428'),
-('黃志明', '19851225',  'B109235501'),
-('林淑芬', '19860222',  'C274705806'),
-('張文龍', '19750411',  'D117815766'),
-('李玉美', '19550714',  'E253941742'),
-('王志誠', '19951114',  'F110994720'),
-('吳佩珊', '20180721',  'G231160530'),
-('趙信宏', '19830824',  'H131347152'),
-('劉文昌', '19881209', 'I148658852'),
-('葉秋萍', '19851008', 'J260542851');
+INSERT INTO auth_db.users (patient_id, name, ssid , password) VALUES
+('P-2024-01', '陳玉華', '19701024',  'A225190428'),
+('P-2024-02', '黃志明', '19851225',  'B109235501'),
+('P-2024-03', '林淑芬', '19860222',  'C274705806'),
+('P-2024-04', '張文龍', '19750411',  'D117815766'),
+('P-2024-05', '李玉美', '19550714',  'E253941742'),
+('P-2024-06', '王志誠', '19951114',  'F110994720'),
+('P-2024-07', '吳佩珊', '20180721',  'G231160530'),
+('P-2023-08', '趙信宏', '19830824',  'H131347152'),
+('P-2023-09', '劉文昌', '19881209', 'I148658852'),
+('P-2024-10', '葉秋萍', '19851008', 'J260542851');
 ```
 
 ## 每個病患可以看見自己的預約結果(這邊以陳玉華病患作為範例)
@@ -432,6 +434,8 @@ FROM
     hw3.appointment AS a
 JOIN
     hw3.doctor AS d ON a.doctor_id = d.doctor_id
+JOIN
+    auth_db.users AS u ON a.patient_id = u.patient_id
 WHERE
     u.ssid = '19701024' AND u.password = 'A225190428';
 ```
