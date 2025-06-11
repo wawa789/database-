@@ -231,7 +231,7 @@ INSERT INTO doctor (doctor_id, name, specialty, phone) VALUES
 ## 新增病歷資料
 ```
 INSERT INTO medical_record (medical_record_id, patient_id, diagnosis_record, last_visits_date) VALUES
-(1, 'P-2024-01', '蛀牙', '2024-08-07')
+(1, 'P-2024-01', '蛀牙', '2024-08-07'),
 (2, 'P-2024-02', '牙周病', '2024-04-21'),
 (3, 'P-2024-03', '智齒拔除', '2024-09-04'),
 (4, 'P-2024-04', '牙齒美白', '2024-03-27'),
