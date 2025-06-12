@@ -488,14 +488,12 @@ INSERT INTO auth_db.doctors (doctor_id, name, ssid , password) VALUES
 ## 每個醫生可以看見病人預約自己的結果(這邊以王大明醫生作為範例)
 ```
 SELECT
+    d.doctor_id,
     a.appointment_id,
     a.appointment_time,
     a.status AS appointment_status,
     a.clinic AS appointment_clinic,
-    a.number AS appointment_number,
-    d.name AS doctor_name,
-    d.doctor_id,
-    d.specialty AS doctor_specialty
+    a.number AS appointment_number
 FROM
     hw3.appointment AS a
 JOIN
