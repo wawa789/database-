@@ -633,35 +633,86 @@ GRANT SELECT ON hos.patient_view_15 TO 'patient_P_2024_15'@'localhost';
 ## 查看權限設定是否正確
 ```
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_02'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_03'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_05'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_06'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_07'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_08'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_09'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_10'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_11'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_12'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_13'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_14'@'localhost';
-SHOW GRANTS FOR 'patient_P_2024_15'@'localhost';
 ```
 <img width="685" alt="image" src="https://github.com/user-attachments/assets/8d5d608b-a22d-4a2f-a186-df15dfa3213b" />
+```
+
+SHOW GRANTS FOR 'patient_P_2024_02'@'localhost';
+```
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/ea943304-01f9-4692-b48e-adda51d092d3" />
+```
+
+SHOW GRANTS FOR 'patient_P_2024_03'@'localhost';
+```
 <img width="692" alt="image" src="https://github.com/user-attachments/assets/d129818a-e7a7-4c79-9037-186fc83eb532" />
+```
+SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
+```
 <img width="689" alt="image" src="https://github.com/user-attachments/assets/3bf6f8eb-53d5-4201-aec5-d5dd8a42cf21" />
+
+```
+SHOW GRANTS FOR 'patient_P_2024_05'@'localhost';
+```
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/0ba057e2-a681-4d3a-b0c8-f335194d2d02" />
+
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_06'@'localhost';
+```
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/a40dac90-c321-46d7-83fc-b6a2d4990c0b" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_07'@'localhost';
+```
 <img width="690" alt="image" src="https://github.com/user-attachments/assets/6e5c4f32-bdbc-44b3-85c2-e318558576ed" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_08'@'localhost';
+```
 <img width="691" alt="image" src="https://github.com/user-attachments/assets/76106882-2032-4837-8179-042c8fab691b" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_09'@'localhost';
+```
 <img width="684" alt="image" src="https://github.com/user-attachments/assets/a68bb436-4701-4317-98b0-3889bf8051e9" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_10'@'localhost';
+```
 <img width="689" alt="image" src="https://github.com/user-attachments/assets/83a5c458-c9fa-4305-b74f-e5e8f8182f80" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_11'@'localhost';
+```
 <img width="694" alt="image" src="https://github.com/user-attachments/assets/bdee53cf-1d1f-4204-af8b-f5db27b58f5e" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_12'@'localhost';
+```
 <img width="686" alt="image" src="https://github.com/user-attachments/assets/b537d173-a79c-4ee3-88f0-bf5a372fa708" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_13'@'localhost';
+```
 <img width="695" alt="image" src="https://github.com/user-attachments/assets/84c6d19e-f476-4600-8539-f7e88a654de4" />
+
+
+```
+SHOW GRANTS FOR 'patient_P_2024_14'@'localhost';
+```
 <img width="697" alt="image" src="https://github.com/user-attachments/assets/c27c4fba-f6b4-4350-9ca4-8746dcf52a4a" />
+
+```
+SHOW GRANTS FOR 'patient_P_2024_15'@'localhost';
+```
 <img width="689" alt="image" src="https://github.com/user-attachments/assets/3c11f79c-d65f-4cbd-b7c9-b0aac98861d1" />
 
 
