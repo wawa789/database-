@@ -111,27 +111,38 @@
 
 實體與關連的摘要圖
 
-![Image](https://github.com/user-attachments/assets/5a31f220-78db-40a2-b906-dfe7f39c10f0)
+![ER全圖A摘要圖](https://github.com/user-attachments/assets/16cbf35c-9718-4971-acd5-6f1e6e8d8b23)
+
 
 詳細全圖
 
-![Image](https://github.com/user-attachments/assets/5f6c9771-6a37-456a-9c35-00bc002d9e2b)
+![ER全圖A](https://github.com/user-attachments/assets/ce6fbb7a-91e2-4de8-bf76-05e41e84bf7f)
 
-用戶
 
-![image](https://github.com/user-attachments/assets/391ea252-c1fd-4547-93ed-7d971e288a66)
 
 病患
 
-![image](https://github.com/user-attachments/assets/4baba63a-e3a9-4f3b-af28-835635ff39b1)
+![病患](https://github.com/user-attachments/assets/6b6deb90-642a-43e3-a2b1-8bcabbef0df2)
+
 
 醫生
 
-![image](https://github.com/user-attachments/assets/076cde50-76d0-4d3d-a41a-3de538878d80)
+![醫生](https://github.com/user-attachments/assets/ceccd1d2-5c1b-4851-9e5b-a9a8fd95f156)
 
-預約
 
-![image](https://github.com/user-attachments/assets/ac2908fd-5c45-49bd-9ccd-e84e08e28a6d)
+病歷
+![病例](https://github.com/user-attachments/assets/997b8afa-aa98-487d-a89f-ebe4aff9c4f5)
+
+
+班表
+
+![班表](https://github.com/user-attachments/assets/25095a56-f016-4936-bfba-183071bcf773)
+
+
+診間
+
+![診間](https://github.com/user-attachments/assets/baf61b58-cda7-4960-90a3-e9fc268dfdc8)
+
 
 
 ## 病患資料表
