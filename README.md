@@ -1500,61 +1500,78 @@ GRANT SELECT ON hos.patient_record_view_15 TO 'patient_P_2024_15'@'localhost';
 ```
 SELECT *FROM patient_record_view_01;
 ```
+![image](https://github.com/user-attachments/assets/4badeee1-2185-4e0a-b4d1-715f4c9b71ef)
 
 ```
 SELECT *FROM patient_record_view_02;
 ```
+![image](https://github.com/user-attachments/assets/4b3bfbf0-7eb8-476a-808e-776b548a691b)
 
 ```
 SELECT *FROM patient_record_view_03;
 ```
+![image](https://github.com/user-attachments/assets/3544d97f-10a8-4f4b-9387-b38330387f0f)
 
 ```
 SELECT *FROM patient_record_view_04;
 ```
+![image](https://github.com/user-attachments/assets/77092d52-189e-4168-b3b8-e309e5a86828)
 
 ```
 SELECT *FROM patient_record_view_05;
 ```
+![image](https://github.com/user-attachments/assets/2de3236e-1181-4c3e-b357-ee838f11016e)
 
 ```
 SELECT *FROM patient_record_view_06;
 ```
+![image](https://github.com/user-attachments/assets/6d0f889c-140e-4430-bf28-526b65714724)
 
 ```
 SELECT *FROM patient_record_view_07;
 ```
+![image](https://github.com/user-attachments/assets/a7662c72-870c-478c-be41-279c1583da9c)
 
 ```
 SELECT *FROM patient_record_view_08;
 ```
+![image](https://github.com/user-attachments/assets/f52154b4-92d6-4a51-ba5d-47f78a4af9a8)
 
 ```
 SELECT *FROM patient_record_view_09;
 ```
+![image](https://github.com/user-attachments/assets/7920bae2-b143-4b02-a32f-731708f60c3e)
 
 ```
 SELECT *FROM patient_record_view_10;
 ```
+![image](https://github.com/user-attachments/assets/4f0c46ab-5cc2-4ca4-ad4a-89cb9582625c)
 
 ```
 SELECT *FROM patient_record_view_11;
 ```
+![image](https://github.com/user-attachments/assets/d5939367-959a-4c2e-b048-3cc33e7571a0)
 
 ```
 SELECT *FROM patient_record_view_12;
 ```
+![image](https://github.com/user-attachments/assets/021343d4-6fc7-4bcc-9916-2eb708e82874)
 
 ```
 SELECT *FROM patient_record_view_13;
 ```
+![image](https://github.com/user-attachments/assets/86237d3f-4442-4f16-b2f8-1ee33153648d)
 
 ```
 SELECT *FROM patient_record_view_14;
 ```
+![image](https://github.com/user-attachments/assets/deff3b39-59b3-4cab-ab1c-b46421647f97)
 
 ```
 SELECT *FROM patient_record_view_15;
+```
+![image](https://github.com/user-attachments/assets/88fce2ac-8ccd-469c-900d-0a7254eed8c1)
+
 ```
 
 
