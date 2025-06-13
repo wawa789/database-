@@ -341,7 +341,33 @@ SELECT *FROM patient_view_01;
 
 ## 病人可以查看自己的個人資料(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
 ```
+CREATE VIEW patient_information_view_01 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    p.phone,
+    p.national_id
+FROM patient p
+WHERE p.patient_id = 'P-2024-01';
 ```
+## 設定權限(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+GRANT SELECT ON hos.patient_information_view_01 TO 'patient_P_2024_01'@'localhost';
+```
+## 查看權限設定是否正確(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
+```
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/901b5c38-660b-4fe9-b13f-6ac30e15a0d7" />
+
+## 查看預約結果view(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+SELECT *FROM patient_information_view_01;
+```
+<img width="436" alt="image" src="https://github.com/user-attachments/assets/5efb9b22-3c54-4819-ad24-2593f404fbc0" />
+
 
 ## 建立檢視表為醫生可以看到的資訊
 ```
