@@ -679,6 +679,7 @@ mysql -u patient_P_2024_01 -p -h localhost
 SELECT *FROM patient_view_01;
 ```
 <img width="916" alt="image" src="https://github.com/user-attachments/assets/6a9041d0-d4fe-4236-99e5-d15aa7113a3a" />
+
 ```
 SELECT *FROM patient_view_02;
 ```
@@ -688,6 +689,7 @@ SELECT *FROM patient_view_02;
 SELECT *FROM patient_view_03;
 ```
 <img width="833" alt="image" src="https://github.com/user-attachments/assets/9b40971d-7229-447e-a5e5-c86031d4a07b" />
+
 ```
 SELECT *FROM patient_view_04;
 ```
@@ -696,15 +698,55 @@ SELECT *FROM patient_view_04;
 ```
 SELECT *FROM patient_view_05;
 ```
+<img width="839" alt="image" src="https://github.com/user-attachments/assets/519dcf3b-74c0-4b5d-a5bd-4c9577e04bbc" />
+
+
+```
 SELECT *FROM patient_view_06;
+```
+
+
+```
 SELECT *FROM patient_view_07;
+```
+
+
+```
 SELECT *FROM patient_view_08;
+```
+
+
+```
 SELECT *FROM patient_view_09;
+```
+
+
+```
 SELECT *FROM patient_view_10;
+```
+
+
+```
 SELECT *FROM patient_view_11;
+```
+
+
+```
 SELECT *FROM patient_view_12;
+```
+
+
+```
 SELECT *FROM patient_view_13;
+```
+
+
+```
 SELECT *FROM patient_view_14;
+```
+
+
+```
 SELECT *FROM patient_view_15;
 ```
 
