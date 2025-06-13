@@ -1836,6 +1836,48 @@ GRANT SELECT ON hos.doctor_appointments_view_09 TO 'doctor_D-009'@'localhost';
 GRANT SELECT ON hos.doctor_appointments_view_10 TO 'doctor_D-010'@'localhost';
 ```
 
+## 查看doctor_appointments_view結果
+```
+SELECT *FROM doctor_appointments_view_01;
+```
+
+```
+SELECT *FROM doctor_appointments_view_02;
+```
+
+```
+SELECT *FROM doctor_appointments_view_03;
+```
+
+```
+SELECT *FROM doctor_appointments_view_04;
+```
+
+```
+SELECT *FROM doctor_appointments_view_05;
+```
+
+```
+SELECT *FROM doctor_appointments_view_06;
+```
+
+```
+SELECT *FROM doctor_appointments_view_07;
+```
+
+```
+SELECT *FROM doctor_appointments_view_08;
+```
+
+```
+SELECT *FROM doctor_appointments_view_09;
+```
+
+```
+SELECT *FROM doctor_appointments_view_10;
+```
+
+
 
 
 ## 創建醫生查看班表view
@@ -2016,6 +2058,48 @@ GRANT SELECT ON hos.doctor_schedule_view_09 TO 'doctor_D-009'@'localhost';
 GRANT SELECT ON hos.doctor_schedule_view_10 TO 'doctor_D-010'@'localhost';
 
 ```
+
+## 查看doctor_schedule_view結果
+```
+SELECT *FROM doctor_schedule_view_01;
+```
+
+```
+SELECT *FROM doctor_schedule_view_02;
+```
+
+```
+SELECT *FROM doctor_schedule_view_03;
+```
+
+```
+SELECT *FROM doctor_schedule_view_04;
+```
+
+```
+SELECT *FROM doctor_schedule_view_05;
+```
+
+```
+SELECT *FROM doctor_schedule_view_06;
+```
+
+```
+SELECT *FROM doctor_schedule_view_07;
+```
+
+```
+SELECT *FROM doctor_schedule_view_08;
+```
+
+```
+SELECT *FROM doctor_schedule_view_09;
+```
+
+```
+SELECT *FROM doctor_schedule_view_10;
+```
+
 
 
 ## 創建醫生查看病例view
@@ -2199,7 +2283,7 @@ JOIN patient p ON a.patient_id = p.patient_id
 WHERE d.doctor_id = 'D-010';
 
 ```
-##設定doctor_medical_record_view權限
+## 設定doctor_medical_record_view權限
 ```
 GRANT SELECT ON hos.doctor_medical_record_view_01 TO 'doctor_D-001'@'localhost';
 GRANT SELECT ON hos.doctor_medical_record_view_02 TO 'doctor_D-002'@'localhost';
@@ -2213,6 +2297,88 @@ GRANT SELECT ON hos.doctor_medical_record_view_09 TO 'doctor_D-009@'localhost';
 GRANT SELECT ON hos.doctor_medical_record_view_10 TO 'doctor_D-010'@'localhost';
 ```
 
+## 查看doctor_medical_record_view結果
+```
+SELECT *FROM doctor_medical_record_view_01;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_02;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_03;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_04;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_05;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_06;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_07;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_08;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_09;
+```
+
+```
+SELECT *FROM doctor_medical_record_view_10;
+```
+
+
+## 確認權限是否設定正確
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-002'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-003'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-004'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-005'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-006'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-007@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-008'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-009'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-010'@'localhost';
+```
 
 
 ## 確認權限是否設定正確
