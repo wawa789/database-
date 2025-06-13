@@ -1563,86 +1563,77 @@ SELECT *FROM patient_record_view_15;
 ```
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
 ```
-<img width="685" alt="image" src="https://github.com/user-attachments/assets/8d5d608b-a22d-4a2f-a186-df15dfa3213b" />
+![image](https://github.com/user-attachments/assets/a297a7ef-1089-4290-90ac-306af5f15b31)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_02'@'localhost';
 ```
-<img width="688" alt="image" src="https://github.com/user-attachments/assets/ea943304-01f9-4692-b48e-adda51d092d3" />
+![image](https://github.com/user-attachments/assets/7f27dda6-f4c0-427c-898f-33b9d81f1ca0)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_03'@'localhost';
 ```
-<img width="692" alt="image" src="https://github.com/user-attachments/assets/d129818a-e7a7-4c79-9037-186fc83eb532" />
+![image](https://github.com/user-attachments/assets/994a9604-4116-4050-adb3-44ab70d3161c)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
 ```
-<img width="689" alt="image" src="https://github.com/user-attachments/assets/3bf6f8eb-53d5-4201-aec5-d5dd8a42cf21" />
+![image](https://github.com/user-attachments/assets/911625b8-85d3-4e20-8e9d-5c2c3137762d)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_05'@'localhost';
 ```
-<img width="688" alt="image" src="https://github.com/user-attachments/assets/0ba057e2-a681-4d3a-b0c8-f335194d2d02" />
+![image](https://github.com/user-attachments/assets/446035ad-f16c-4531-a231-259b716f7c97)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_06'@'localhost';
 ```
-<img width="686" alt="image" src="https://github.com/user-attachments/assets/a40dac90-c321-46d7-83fc-b6a2d4990c0b" />
-
+![image](https://github.com/user-attachments/assets/4a739aae-ae0b-46ad-bd15-045c5e7982f8)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_07'@'localhost';
 ```
-<img width="690" alt="image" src="https://github.com/user-attachments/assets/6e5c4f32-bdbc-44b3-85c2-e318558576ed" />
-
+![image](https://github.com/user-attachments/assets/abb39e03-6226-45e5-9f06-f5468421cbcb)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_08'@'localhost';
 ```
-<img width="691" alt="image" src="https://github.com/user-attachments/assets/76106882-2032-4837-8179-042c8fab691b" />
-
+![image](https://github.com/user-attachments/assets/cf73157e-3232-4629-bc9d-be857d0517b5)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_09'@'localhost';
 ```
-<img width="684" alt="image" src="https://github.com/user-attachments/assets/a68bb436-4701-4317-98b0-3889bf8051e9" />
-
+![image](https://github.com/user-attachments/assets/7d294d50-af8a-43cb-98fb-a8d90c567239)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_10'@'localhost';
 ```
-<img width="689" alt="image" src="https://github.com/user-attachments/assets/83a5c458-c9fa-4305-b74f-e5e8f8182f80" />
-
+![image](https://github.com/user-attachments/assets/2a005147-750e-4580-b2f3-57ac152e02c9)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_11'@'localhost';
 ```
-<img width="694" alt="image" src="https://github.com/user-attachments/assets/bdee53cf-1d1f-4204-af8b-f5db27b58f5e" />
-
+![image](https://github.com/user-attachments/assets/1c3d04f0-9bb3-4270-8dac-0501369e1f22)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_12'@'localhost';
 ```
-<img width="686" alt="image" src="https://github.com/user-attachments/assets/b537d173-a79c-4ee3-88f0-bf5a372fa708" />
-
+![image](https://github.com/user-attachments/assets/57c30dd3-da88-496f-bb08-fdb0f0e9bb84)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_13'@'localhost';
 ```
-<img width="695" alt="image" src="https://github.com/user-attachments/assets/84c6d19e-f476-4600-8539-f7e88a654de4" />
-
+![image](https://github.com/user-attachments/assets/fb131956-b539-4a63-a3f9-f603ca73d1ec)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_14'@'localhost';
 ```
-<img width="697" alt="image" src="https://github.com/user-attachments/assets/c27c4fba-f6b4-4350-9ca4-8746dcf52a4a" />
+![image](https://github.com/user-attachments/assets/67bc9ff5-31cc-4380-989d-185247187c9f)
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_15'@'localhost';
 ```
-<img width="689" alt="image" src="https://github.com/user-attachments/assets/3c11f79c-d65f-4cbd-b7c9-b0aac98861d1" />
-
+![image](https://github.com/user-attachments/assets/8451a73f-1a49-43e2-a642-3624d1ab0572)
 
 
 ## 建立醫生查看病患預約情形view
