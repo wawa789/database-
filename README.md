@@ -853,20 +853,26 @@ SELECT *FROM patient_information_view_01;
 ```
 SELECT *FROM patient_information_view_02;
 ```
+<img width="437" alt="image" src="https://github.com/user-attachments/assets/8ad83c33-61c8-47c7-9eb8-7ac188620936" />
 
 
 ```
 SELECT *FROM patient_information_view_03;
 ```
 
+<img width="433" alt="image" src="https://github.com/user-attachments/assets/5c65ea46-d067-430d-86c3-48931435995c" />
+
+
 ```
 SELECT *FROM patient_information_view_04;
 ```
+<img width="438" alt="image" src="https://github.com/user-attachments/assets/99346b5c-2ae6-44e4-843a-86dc3b94a718" />
 
 
 ```
 SELECT *FROM patient_information_view_05;
 ```
+<img width="433" alt="image" src="https://github.com/user-attachments/assets/e6fba5e9-3166-4490-b12e-dd09be9e6d31" />
 
 
 ```
@@ -884,7 +890,7 @@ SELECT *FROM patient_information_view_07;
 ```
 SELECT *FROM patient_information_view_08;
 ```
-
+<img width="438" alt="image" src="https://github.com/user-attachments/assets/94ddbdc5-38d6-478c-bbbd-de8ae7b330d4" />
 
 
 ```
@@ -893,12 +899,10 @@ SELECT *FROM patient_information_view_09;
 <img width="437" alt="image" src="https://github.com/user-attachments/assets/0f7a2335-5e79-404a-810c-3acb5fa83099" />
 
 
-
 ```
 SELECT *FROM patient_information_view_10;
 ```
 <img width="434" alt="image" src="https://github.com/user-attachments/assets/79a8a1a2-ab58-4e8c-b64d-81c9ea0c1a5b" />
-
 
 
 ```
@@ -907,12 +911,10 @@ SELECT *FROM patient_information_view_11;
 <img width="436" alt="image" src="https://github.com/user-attachments/assets/222c57b2-c6ba-4d45-a4b2-2ea85e1ee916" />
 
 
-
 ```
 SELECT *FROM patient_information_view_12;
 ```
 <img width="431" alt="image" src="https://github.com/user-attachments/assets/ca12efe9-1eff-4331-b2cd-a2d79d10e450" />
-
 
 
 ```
@@ -921,19 +923,16 @@ SELECT *FROM patient_information_view_13;
 <img width="435" alt="image" src="https://github.com/user-attachments/assets/136a8414-fc48-4b42-9280-f958e4b7c5c0" />
 
 
-
 ```
 SELECT *FROM patient_information_view_14;
 ```
 <img width="435" alt="image" src="https://github.com/user-attachments/assets/06654bcf-0f19-45a6-a2e6-3610317907cd" />
 
 
-
 ```
 SELECT *FROM patient_information_view_15;
 ```
 <img width="436" alt="image" src="https://github.com/user-attachments/assets/79f06cce-2e9f-4977-8db2-b25719e1f425" />
-
 
 
 ## 建立檢視表為醫生可以看到的資訊
