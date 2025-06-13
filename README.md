@@ -1521,6 +1521,68 @@ GRANT SELECT ON hos.patient_record_view_14 TO 'patient_P_2024_14'@'localhost';
 GRANT SELECT ON hos.patient_record_view_15 TO 'patient_P_2024_15'@'localhost';
 ```
 
+## 查看patient_record_view結果
+```
+SELECT *FROM patient_record_view_01;
+```
+
+```
+SELECT *FROM patient_record_view_02;
+```
+
+```
+SELECT *FROM patient_record_view_03;
+```
+
+```
+SELECT *FROM patient_record_view_04;
+```
+
+```
+SELECT *FROM patient_record_view_05;
+```
+
+```
+SELECT *FROM patient_record_view_06;
+```
+
+```
+SELECT *FROM patient_record_view_07;
+```
+
+```
+SELECT *FROM patient_record_view_08;
+```
+
+```
+SELECT *FROM patient_record_view_09;
+```
+
+```
+SELECT *FROM patient_record_view_10;
+```
+
+```
+SELECT *FROM patient_record_view_11;
+```
+
+```
+SELECT *FROM patient_record_view_12;
+```
+
+```
+SELECT *FROM patient_record_view_13;
+```
+
+```
+SELECT *FROM patient_record_view_14;
+```
+
+```
+SELECT *FROM patient_record_view_15;
+```
+
+
 ## 查看權限設定是否正確
 ```
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
