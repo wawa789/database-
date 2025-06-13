@@ -1587,7 +1587,7 @@ LEFT JOIN medical_record mr ON mr.medical_record_id = (
     LIMIT 1
 )
 WHERE p.patient_id = 'P-2024-15';
-
+```
 
 
 
