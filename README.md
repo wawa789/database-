@@ -2282,6 +2282,56 @@ SHOW GRANTS FOR 'doctor_D-001'@'localhost';
 ```
 
 
+## 建立管理員查看醫生與病患的預約資料view
+```
+CREATE OR REPLACE VIEW doctor_patient_detail_view AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 出生日期,
+    p.phone AS 病人電話,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 就診日期,
+    a.appointment_id AS 預約編號,
+    a.status AS 預約狀態,
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時間,
+    s.clinic AS 診間
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN patient p ON a.patient_id = p.patient_id
+LEFT JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id;
+
+```
+
+<img width="904" alt="image" src="https://github.com/user-attachments/assets/3e134640-76c9-4160-99e3-469a0799efc4" />
+
+
+## 建立管理員查看整體病歷view
+```
+CREATE OR REPLACE VIEW doctor_patient_medical_records_view AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 就診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN patient p ON a.patient_id = p.patient_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+ORDER BY p.patient_id, mr.visits_date DESC;
+```
+<img width="695" alt="image" src="https://github.com/user-attachments/assets/9108faee-29a6-4731-bbd7-306c44320d0d" />
+
 
 
 
