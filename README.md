@@ -2396,47 +2396,6 @@ SHOW GRANTS FOR 'doctor_D-010'@'localhost';
 ```
 
 
-## 確認權限是否設定正確
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
-```
-SHOW GRANTS FOR 'doctor_D-001'@'localhost';
-```
-
 
 ## 建立管理員查看醫生與病患的預約資料view
 ```
