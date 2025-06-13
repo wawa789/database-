@@ -2167,6 +2167,50 @@ GRANT SELECT ON hos.doctor_medical_record_view_10 TO 'doctor_D-010'@'localhost';
 
 
 
+## 確認權限是否設定正確
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+```
+SHOW GRANTS FOR 'doctor_D-001'@'localhost';
+```
+
+
+
+
 
 ## 作業(Customer order entry)
 ```
