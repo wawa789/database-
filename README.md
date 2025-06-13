@@ -1,4 +1,4 @@
-<img width="485" alt="image" src="https://github.com/user-attachments/assets/96063801-17c2-493e-b287-9bbe5c46d74c" />## 組員
+## 組員
 
 林國善
 41136111 資訊工程系3年級乙班
