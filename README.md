@@ -1105,6 +1105,35 @@ SELECT *FROM patient_information_view_15;
 <img width="436" alt="image" src="https://github.com/user-attachments/assets/79f06cce-2e9f-4977-8db2-b25719e1f425" />
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 建立檢視表為醫生可以看到的資訊
 ```
 CREATE OR REPLACE VIEW view_doctor_appointments AS
@@ -1154,8 +1183,48 @@ JOIN
     doctor d ON a.doctor_id = d.doctor_id;
 
 ```
+
+## 創建醫生查看預約自己的病人view
+```
+CREATE OR REPLACE VIEW doctor_appointments_view_01 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    a.appointment_time AS 預約時間,
+    a.status AS 預約狀態,
+    a.clinic AS 診間,
+    a.number AS 預約號碼
+FROM 
+    appointment a
+JOIN 
+    patient p ON a.patient_id = p.patient_id
+JOIN 
+    doctor d ON a.doctor_id = d.doctor_id
+WHERE 
+    d.doctor_id = 'D-001';
+```
+```
+CREATE OR REPLACE VIEW doctor_appointments_view_01 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    a.appointment_time AS 預約時間,
+    a.status AS 預約狀態,
+    a.clinic AS 診間,
+    a.number AS 預約號碼
+FROM 
+    appointment a
+JOIN 
+    patient p ON a.patient_id = p.patient_id
+JOIN 
+    doctor d ON a.doctor_id = d.doctor_id
+WHERE 
+    d.doctor_id = 'D-001';
+```
+
 # 病患查看醫生排班
-```CREATE OR REPLACE VIEW view_schedule AS
+```
+CREATE OR REPLACE VIEW view_schedule AS
 SELECT
     s.schedule_date AS 日期,
     s.week AS 星期,
