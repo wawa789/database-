@@ -1164,20 +1164,20 @@ WHERE p.patient_id = 'P-2024-15';
 ## 設定patient_information_view權限
 ```
 GRANT SELECT ON hos.patient_information_view_01 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_02 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_03 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_04 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_05 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_06 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_07 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_08 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_09 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_10 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_11 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_12 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_13 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_14 TO 'patient_P_2024_01'@'localhost';
-GRANT SELECT ON hos.patient_information_view_15 TO 'patient_P_2024_01'@'localhost';
+GRANT SELECT ON hos.patient_information_view_02 TO 'patient_P_2024_02'@'localhost';
+GRANT SELECT ON hos.patient_information_view_03 TO 'patient_P_2024_03'@'localhost';
+GRANT SELECT ON hos.patient_information_view_04 TO 'patient_P_2024_04'@'localhost';
+GRANT SELECT ON hos.patient_information_view_05 TO 'patient_P_2024_05'@'localhost';
+GRANT SELECT ON hos.patient_information_view_06 TO 'patient_P_2024_06'@'localhost';
+GRANT SELECT ON hos.patient_information_view_07 TO 'patient_P_2024_07'@'localhost';
+GRANT SELECT ON hos.patient_information_view_08 TO 'patient_P_2024_08'@'localhost';
+GRANT SELECT ON hos.patient_information_view_09 TO 'patient_P_2024_09'@'localhost';
+GRANT SELECT ON hos.patient_information_view_10 TO 'patient_P_2024_10'@'localhost';
+GRANT SELECT ON hos.patient_information_view_11 TO 'patient_P_2024_11'@'localhost';
+GRANT SELECT ON hos.patient_information_view_12 TO 'patient_P_2024_12'@'localhost';
+GRANT SELECT ON hos.patient_information_view_13 TO 'patient_P_2024_13'@'localhost';
+GRANT SELECT ON hos.patient_information_view_14 TO 'patient_P_2024_14'@'localhost';
+GRANT SELECT ON hos.patient_information_view_15 TO 'patient_P_2024_15'@'localhost';
 ```
 
 ## 查看patient_information_view結果
