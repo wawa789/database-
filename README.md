@@ -1272,15 +1272,321 @@ SELECT *FROM patient_information_view_15;
 
 
 
-
-
-
-
-
-
-
-
-
+## 病人可以查看自己最新一筆的診斷紀錄
+```
+CREATE OR REPLACE VIEW patient_record_view_01 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-01';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_02 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-02';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_03 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-03';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_04 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-04';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_05 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-05';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_06 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-06';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_07 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-07';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_08 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-08';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_09 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-09';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_10 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-10';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_11 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-11';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_12 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-12';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_13 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-13';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_14 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-14';
+```
+```
+CREATE OR REPLACE VIEW patient_record_view_15 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號,
+    mr.diagnosis_record AS 最新診斷,
+    mr.visits_date AS 就診日期
+FROM patient p
+LEFT JOIN medical_record mr ON mr.medical_record_id = (
+    SELECT medical_record_id 
+    FROM medical_record 
+    WHERE patient_id = p.patient_id 
+    ORDER BY visits_date DESC 
+    LIMIT 1
+)
+WHERE p.patient_id = 'P-2024-15';
 
 
 
