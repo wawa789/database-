@@ -158,39 +158,39 @@ CREATE TABLE doctor (
 
 ## 病歷表
 ```
-CREATE TABLE medical_record (
+CREATE OR REPLACE TABLE medical_record (
     medical_record_id VARCHAR(30) PRIMARY KEY,
     patient_id VARCHAR(30),
     diagnosis_record TEXT,
-    last_visits_date DATE,
+    visits_date DATE,
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
 );
 ```
 
 ## 預約表
 ```
-CREATE TABLE appointment (
+CREATE OR REPLACE TABLE appointment (
     appointment_id VARCHAR(30) PRIMARY KEY,
     patient_id VARCHAR(30),
-    doctor_id VARCHAR(30),
-    status TEXT,
-    appointment_time TEXT,
-    medical_record_id VARCHAR(30),
-    clinic VARCHAR(10),
+    schedule_id INTEGER,
     number VARCHAR(10),
-    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
-    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
+    status TEXT,
+    medical_record_id VARCHAR(30),
+    FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+    FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id)
 );
 ```
 
 ## 醫生排班表
 ```
-CREATE TABLE schedule (
+CREATE OR REPLACE TABLE schedule (
     schedule_id INTEGER PRIMARY KEY,
     doctor_id VARCHAR(30),
     schedule_date DATE,
     schedule_time TEXT,
     week TEXT,
+    clinic TEXT,
     schedule_status TEXT,
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
@@ -237,58 +237,58 @@ INSERT INTO doctor (doctor_id, name, specialty, phone) VALUES
 
 ## 新增病歷資料
 ```
-INSERT INTO medical_record (medical_record_id, patient_id, diagnosis_record, last_visits_date) VALUES
-(1, 'P-2024-01', '蛀牙', '2024-08-07'),
-(2, 'P-2024-02', '牙周病', '2024-04-21'),
-(3, 'P-2024-03', '智齒拔除', '2024-09-04'),
-(4, 'P-2024-04', '牙齒美白', '2024-03-27'),
-(5, 'P-2024-05', '洗牙', '2023-11-19'),
-(6, 'P-2024-06', '牙齒矯正', '2024-02-14'),
-(7, 'P-2024-07', '補牙', '2024-03-13'),
-(8, 'P-2024-08', '牙齦炎', '2023-09-17'),
-(9, 'P-2024-09', '牙齒裂痕', '2024-07-15'),
-(10, 'P-2024-10', '牙冠製作', '2023-01-13'),
-(11, 'P-2024-11','洗牙', '1975-10-21'),
-(12, 'P-2024-12', '牙齒矯正', '2000-09-21'),
-(13, 'P-2024-13', '智齒拔除', '1999-09-28'),
-(14, 'P-2024-14', '牙齦炎', '1980-03-22'),
-(15, 'P-2024-15', '洗牙', '1995-10-10');
+INSERT INTO medical_record (medical_record_id, patient_id, diagnosis_record, visits_date) VALUES
+('MR-001', 'P-2024-01', '蛀牙', '2024-08-07'),
+('MR-002', 'P-2024-02', '牙周病', '2024-04-21'),
+('MR-003', 'P-2024-03', '智齒拔除', '2024-09-04'),
+('MR-004', 'P-2024-04', '牙齒美白', '2024-03-27'),
+('MR-005', 'P-2024-05', '洗牙', '2023-11-19'),
+('MR-006', 'P-2024-06', '牙齒矯正', '2024-02-14'),
+('MR-007', 'P-2024-07', '補牙', '2024-03-13'),
+('MR-008', 'P-2024-08', '牙齦炎', '2023-09-17'),
+('MR-009', 'P-2024-09', '牙齒裂痕', '2024-07-15'),
+('MR-010', 'P-2024-10', '牙冠製作', '2023-01-13'),
+('MR-011', 'P-2024-11','洗牙', '1975-10-21'),
+('MR-012', 'P-2024-12', '牙齒矯正', '2000-09-21'),
+('MR-013', 'P-2024-13', '智齒拔除', '1999-09-28'),
+('MR-014', 'P-2024-14', '牙齦炎', '1980-03-22'),
+('MR-015', 'P-2024-15', '洗牙', '1995-10-10');
 ```
 
 ## 新增醫生排班資料
 
 ```
-INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week, schedule_status) VALUES
-(1, 'D-001', '2025-05-21', '上午', '星期一', '已滿'),
-(2, 'D-002', '2025-05-22', '上午', '星期二', '開診'),
-(3, 'D-003', '2025-05-23', '上午', '星期三', '開診'),
-(4, 'D-004', '2025-05-24', '下午', '星期四', '休診'),
-(5, 'D-005', '2025-05-25', '下午', '星期五', '開診'),
-(6, 'D-006', '2025-05-26', '下午', '星期一', '開診'),
-(7, 'D-007', '2025-05-27', '下午', '星期二', '開診'),
-(8, 'D-008', '2025-05-28', '晚上', '星期三', '休診'),
-(9, 'D-009', '2025-05-29', '晚上', '星期四', '開診'),
-(10, 'D-010', '2025-05-30', '晚上', '星期五', '開診');
+INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week, clinic, schedule_status) VALUES
+(1, 'D-001', '2025-05-21', '上午', '星期一', '101診間', '已滿'),
+(2, 'D-002', '2025-05-22', '上午', '星期二', '101診間', '開診'),
+(3, 'D-003', '2025-05-23', '上午', '星期三', '101診間', '開診'),
+(4, 'D-004', '2025-05-24', '下午', '星期四', '102診間', '休診'),
+(5, 'D-005', '2025-05-25', '下午', '星期五', '102診間', '開診'),
+(6, 'D-006', '2025-05-26', '下午', '星期一', '103診間', '開診'),
+(7, 'D-007', '2025-05-27', '下午', '星期二', '103診間', '開診'),
+(8, 'D-008', '2025-05-28', '晚上', '星期三', '103診間', '休診'),
+(9, 'D-009', '2025-05-29', '晚上', '星期四', '104診間', '開診'),
+(10, 'D-010', '2025-05-30', '晚上', '星期五', '104診間', '開診');
 ```
 
 ## 新增預約表資料
 ```
-INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointment_time, clinic, number) VALUES
-('2025-04-21-001', 'P-2024-01', 'D-001', '已預約', '2025-05-21 09:00','101診間','1號'),
-('2025-04-22-002', 'P-2024-02', 'D-002', '已完成', '2025-05-22 10:00','101診間','NULL'),
-('2025-04-23-003', 'P-2024-03', 'D-003', '取消', '2025-05-23 11:00','101診間','NULL'),
-('2025-04-24-004', 'P-2024-04', 'D-004', '已預約', '2025-05-24 14:00','102診間','1號'),
-('2025-04-25-005', 'P-2024-05', 'D-005', '已預約', '2025-05-25 13:00','102診間','1號'),
-('2025-04-26-006', 'P-2024-06', 'D-006', '已完成', '2025-05-26 15:00','103診間','NULL'),
-('2025-04-27-007', 'P-2024-07', 'D-007', '已預約', '2025-05-27 10:00','103診間','1號'),
-('2025-04-28-008', 'P-2024-08', 'D-008', '取消', '2025-05-28 16:00','103診間','NULL'),
-('2025-04-29-009', 'P-2024-09', 'D-009', '已完成', '2025-05-29 11:00','104診間','NULL'),
-('2025-04-30-010', 'P-2024-10','D-010', '已預約', '2025-05-21 09:00','104診間','1號'),
-('2025-05-01-011', 'P-2024-11', 'D-001', '已完成', '2025-05-21 09:30','101診間','2號'),
-('2025-05-02-012', 'P-2024-12', 'D-001', '已預約', '2025-05-21 10:00','101診間','3號'),
-('2025-05-03-013', 'P-2024-13', 'D-004', '取消', '2025-05-24 15:00','102診間','NULL'),
-('2025-05-04-014', 'P-2024-14', 'D-002', '已預約', '2025-05-22 11:00','101診間','1號'),
-('2025-05-05-015', 'P-2024-15','D-010', '已預約', '2025-05-21 10:30','104診間','2號');
+INSERT INTO appointment (appointment_id, patient_id, schedule_id, number, status, medical_record_id) VALUES
+('2025-04-21-001', 'P-2024-01', 1, '1號', '已預約', 'MR-001'),
+('2025-04-22-002', 'P-2024-02', 2, NULL, '已完成', 'MR-002'),
+('2025-04-23-003', 'P-2024-03', 3, NULL, '取消', 'MR-003'),
+('2025-04-24-004', 'P-2024-04', 4, '1號', '已預約', 'MR-004'),
+('2025-04-25-005', 'P-2024-05', 5, '1號', '已預約', 'MR-005'),
+('2025-04-26-006', 'P-2024-06', 6, NULL, '已完成', 'MR-006'),
+('2025-04-27-007', 'P-2024-07', 7, '1號', '已預約', 'MR-007'),
+('2025-04-28-008', 'P-2024-08', 8, NULL, '取消', 'MR-008'),
+('2025-04-29-009', 'P-2024-09', 9, NULL, '已完成', 'MR-009'),
+('2025-04-30-010', 'P-2024-10', 1, '1號', '已預約', 'MR-010'),
+('2025-05-01-011', 'P-2024-11', 1, '2號', '已完成', 'MR-011'),
+('2025-05-02-012', 'P-2024-12', 1, '3號', '已預約', 'MR-012'),
+('2025-05-03-013', 'P-2024-13', 4, NULL, '取消', 'MR-013'),
+('2025-05-04-014', 'P-2024-14', 2, '1號', '已預約', 'MR-014'),
+('2025-05-05-015', 'P-2024-15', 1, '2號', '已預約', 'MR-015');
 ```
 
 
@@ -303,13 +303,14 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
     a.number AS 看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-01';
 ```
 
