@@ -292,12 +292,51 @@ INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointm
 ```
 
 
+## 病人看到自己的預約結果(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+CREATE VIEW patient_view_01 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-01';
+```
 
+## 創建使用者(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+CREATE USER 'patient_P_2024_01'@'localhost' IDENTIFIED BY 'secure_password_01';
+```
+
+## 設定權限(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+GRANT SELECT ON hos.patient_view_01 TO 'patient_P_2024_01'@'localhost';
+```
+## 查看權限設定是否正確(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
+```
+## 使用ID:P-2024-01登入(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+mysql -u patient_P_2024_02 -p -h localhost
+```
+## 查看預約結果view(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
+SELECT *FROM patient_view_01;
+```
 
 ## 建立檢視表為醫生可以看到的資訊
 ```
-
-
 CREATE OR REPLACE VIEW view_doctor_appointments AS
 SELECT 
     d.doctor_id AS 醫師編號,
