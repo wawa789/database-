@@ -326,6 +326,8 @@ GRANT SELECT ON hos.patient_view_01 TO 'patient_P_2024_01'@'localhost';
 ```
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
 ```
+<img width="746" alt="image" src="https://github.com/user-attachments/assets/50eee3f3-efa7-44b3-94cb-89d2746a7376" />
+
 ## 使用ID:P-2024-01登入(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
 ```
 mysql -u patient_P_2024_02 -p -h localhost
@@ -333,6 +335,12 @@ mysql -u patient_P_2024_02 -p -h localhost
 ## 查看預約結果view(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
 ```
 SELECT *FROM patient_view_01;
+```
+<img width="916" alt="image" src="https://github.com/user-attachments/assets/6a9041d0-d4fe-4236-99e5-d15aa7113a3a" />
+
+
+## 病人可以查看自己的個人資料(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+```
 ```
 
 ## 建立檢視表為醫生可以看到的資訊
