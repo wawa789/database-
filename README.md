@@ -253,6 +253,7 @@ INSERT INTO medical_record (medical_record_id, patient_id, diagnosis_record, vis
 ('MR-013', 'P-2024-13', '智齒拔除', '1999-09-28'),
 ('MR-014', 'P-2024-14', '牙齦炎', '1980-03-22'),
 ('MR-015', 'P-2024-15', '洗牙', '1995-10-10');
+
 ```
 
 ## 新增醫生排班資料
@@ -269,26 +270,29 @@ INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week
 (8, 'D-008', '2025-05-28', '晚上', '星期三', '103診間', '休診'),
 (9, 'D-009', '2025-05-29', '晚上', '星期四', '104診間', '開診'),
 (10, 'D-010', '2025-05-30', '晚上', '星期五', '104診間', '開診');
+
 ```
 
 ## 新增預約表資料
 ```
+
 INSERT INTO appointment (appointment_id, patient_id, schedule_id, number, status, medical_record_id) VALUES
-('2025-04-21-001', 'P-2024-01', 1, '1號', '已預約', 'MR-001'),
-('2025-04-22-002', 'P-2024-02', 2, NULL, '已完成', 'MR-002'),
+('2025-04-21-001', 'P-2024-01', 1, '1號', '已完成', 'MR-001'),
+('2025-04-22-002', 'P-2024-02', 2, '1號', '已預約', 'MR-002'),
 ('2025-04-23-003', 'P-2024-03', 3, NULL, '取消', 'MR-003'),
-('2025-04-24-004', 'P-2024-04', 4, '1號', '已預約', 'MR-004'),
+('2025-04-24-004', 'P-2024-04', 10, '1號', '已完成', 'MR-004'),
 ('2025-04-25-005', 'P-2024-05', 5, '1號', '已預約', 'MR-005'),
-('2025-04-26-006', 'P-2024-06', 6, NULL, '已完成', 'MR-006'),
+('2025-04-26-006', 'P-2024-06', 6, '1號', '已完成', 'MR-006'),
 ('2025-04-27-007', 'P-2024-07', 7, '1號', '已預約', 'MR-007'),
-('2025-04-28-008', 'P-2024-08', 8, NULL, '取消', 'MR-008'),
-('2025-04-29-009', 'P-2024-09', 9, NULL, '已完成', 'MR-009'),
-('2025-04-30-010', 'P-2024-10', 1, '1號', '已預約', 'MR-010'),
-('2025-05-01-011', 'P-2024-11', 1, '2號', '已完成', 'MR-011'),
-('2025-05-02-012', 'P-2024-12', 1, '3號', '已預約', 'MR-012'),
+('2025-04-28-008', 'P-2024-08', 10, '1號', '已完成', 'MR-008'),
+('2025-04-29-009', 'P-2024-09', 9, '1號', '已預約', 'MR-009'),
+('2025-04-30-010', 'P-2024-10', 1, '2號', '已完成', 'MR-010'),
+('2025-05-01-011', 'P-2024-11', 1, '3號', '已預約', 'MR-011'),
+('2025-05-02-012', 'P-2024-12', 1, '4號', '已預約', 'MR-012'),
 ('2025-05-03-013', 'P-2024-13', 4, NULL, '取消', 'MR-013'),
-('2025-05-04-014', 'P-2024-14', 2, '1號', '已預約', 'MR-014'),
-('2025-05-05-015', 'P-2024-15', 1, '2號', '已預約', 'MR-015');
+('2025-05-04-014', 'P-2024-14', 2, '2號', '已預約', 'MR-014'),
+('2025-05-05-015', 'P-2024-15', 1, '5號', '已預約', 'MR-015');
+
 ```
 
 
@@ -306,7 +310,17 @@ SELECT
     s.schedule_date AS 預約日期,
     s.schedule_time AS 預約時段,
     s.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
@@ -325,13 +339,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-02';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-03)
@@ -345,13 +370,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-03';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-04)
@@ -365,13 +401,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-04';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-05)
@@ -385,13 +432,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-05';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-06)
@@ -405,13 +463,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-06';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-07)
@@ -425,13 +494,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-07';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-08)
@@ -445,13 +525,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-08';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-09)
@@ -465,13 +556,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-09';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-10)
@@ -485,13 +587,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-10';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-11)
@@ -505,13 +618,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-11';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-12)
@@ -525,13 +649,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-12';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-13)
@@ -545,13 +680,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-13';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-14)
@@ -565,13 +711,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-14';
 ```
 ## 病人看到自己的預約結果(ID:P-2024-15)
@@ -585,13 +742,24 @@ SELECT
     d.name AS 醫生名字,
     d.specialty AS 科別,
     a.status AS 預約狀態,
-    a.appointment_time AS 預約時間,
-    a.clinic AS 診間號碼,
-    a.number AS 看診號碼
+    s.schedule_date AS 預約日期,
+    s.schedule_time AS 預約時段,
+    s.clinic AS 診間號碼,
+    a.number AS 看診號碼,
+    (
+        SELECT COUNT(*)
+        FROM appointment a2
+        JOIN schedule s2 ON a2.schedule_id = s2.schedule_id
+        WHERE a2.status = '已完成'
+          AND s2.doctor_id = d.doctor_id
+          AND s2.schedule_date = s.schedule_date
+          AND s2.schedule_time = s.schedule_time
+          AND s2.clinic = s.clinic
+    ) + 1 AS 目前看診號碼
 FROM patient p
-LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
-LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
+LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-15';
 ```
 ## 創建使用者
