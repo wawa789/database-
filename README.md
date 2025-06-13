@@ -635,16 +635,17 @@ GRANT SELECT ON hos.patient_view_15 TO 'patient_P_2024_15'@'localhost';
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
 ```
 <img width="685" alt="image" src="https://github.com/user-attachments/assets/8d5d608b-a22d-4a2f-a186-df15dfa3213b" />
-```
 
+```
 SHOW GRANTS FOR 'patient_P_2024_02'@'localhost';
 ```
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/ea943304-01f9-4692-b48e-adda51d092d3" />
-```
 
+```
 SHOW GRANTS FOR 'patient_P_2024_03'@'localhost';
 ```
 <img width="692" alt="image" src="https://github.com/user-attachments/assets/d129818a-e7a7-4c79-9037-186fc83eb532" />
+
 ```
 SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
 ```
@@ -654,8 +655,6 @@ SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
 SHOW GRANTS FOR 'patient_P_2024_05'@'localhost';
 ```
 <img width="688" alt="image" src="https://github.com/user-attachments/assets/0ba057e2-a681-4d3a-b0c8-f335194d2d02" />
-
-
 
 ```
 SHOW GRANTS FOR 'patient_P_2024_06'@'localhost';
