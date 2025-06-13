@@ -1572,8 +1572,6 @@ SELECT *FROM patient_record_view_15;
 ```
 ![image](https://github.com/user-attachments/assets/88fce2ac-8ccd-469c-900d-0a7254eed8c1)
 
-```
-
 
 ## 查看權限設定是否正確
 ```
