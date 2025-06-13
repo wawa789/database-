@@ -1832,42 +1832,52 @@ GRANT SELECT ON hos.doctor_appointments_view_10 TO 'doctor_D-010'@'localhost';
 ```
 SELECT *FROM doctor_appointments_view_01;
 ```
+![image](https://github.com/user-attachments/assets/acfeff90-d069-4495-ac43-529f8b8f0877)
 
 ```
 SELECT *FROM doctor_appointments_view_02;
 ```
+![image](https://github.com/user-attachments/assets/09cfd74b-7445-4e84-8129-e8f2c0dae9d0)
 
 ```
 SELECT *FROM doctor_appointments_view_03;
 ```
+![image](https://github.com/user-attachments/assets/18ad55f1-1e63-4a2e-ae72-c98e16e7a0c6)
 
 ```
 SELECT *FROM doctor_appointments_view_04;
 ```
+![image](https://github.com/user-attachments/assets/b9d6fe59-e896-4400-91b2-0e5ff193c4a9)
 
 ```
 SELECT *FROM doctor_appointments_view_05;
 ```
+![image](https://github.com/user-attachments/assets/a0c7281d-b789-4792-9972-1d333f3e2328)
 
 ```
 SELECT *FROM doctor_appointments_view_06;
 ```
+![image](https://github.com/user-attachments/assets/e23d455a-c227-45b2-b979-2762662431d7)
 
 ```
 SELECT *FROM doctor_appointments_view_07;
 ```
+![image](https://github.com/user-attachments/assets/90fafa58-3d67-4447-81ac-4795e2c38039)
 
 ```
 SELECT *FROM doctor_appointments_view_08;
 ```
+![image](https://github.com/user-attachments/assets/df4eea70-7023-4f38-83cc-862994417ce4)
 
 ```
 SELECT *FROM doctor_appointments_view_09;
 ```
+![image](https://github.com/user-attachments/assets/5febab2e-8cf9-494c-9749-9a4f9b0ae265)
 
 ```
 SELECT *FROM doctor_appointments_view_10;
 ```
+![image](https://github.com/user-attachments/assets/9175c916-c9db-4185-92a6-82416752be3d)
 
 
 
