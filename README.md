@@ -327,8 +327,6 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-01';
 ```
-
-## 病人看到自己的預約結果(ID:P-2024-02)
 ```
 CREATE OR REPLACE VIEW patient_view_02 AS
 SELECT 
@@ -359,7 +357,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-02';
 ```
-## 病人看到自己的預約結果(ID:P-2024-03)
+
 ```
 CREATE OR REPLACE VIEW patient_view_03 AS
 SELECT 
@@ -390,7 +388,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-03';
 ```
-## 病人看到自己的預約結果(ID:P-2024-04)
+
 ```
 CREATE OR REPLACE VIEW patient_view_04 AS
 SELECT 
@@ -421,7 +419,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-04';
 ```
-## 病人看到自己的預約結果(ID:P-2024-05)
+
 ```
 CREATE OR REPLACE VIEW patient_view_05 AS
 SELECT 
@@ -452,7 +450,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-05';
 ```
-## 病人看到自己的預約結果(ID:P-2024-06)
+
 ```
 CREATE OR REPLACE VIEW patient_view_06 AS
 SELECT 
@@ -483,7 +481,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-06';
 ```
-## 病人看到自己的預約結果(ID:P-2024-07)
+
 ```
 CREATE OR REPLACE VIEW patient_view_07 AS
 SELECT 
@@ -514,7 +512,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-07';
 ```
-## 病人看到自己的預約結果(ID:P-2024-08)
+
 ```
 CREATE OR REPLACE  VIEW patient_view_08 AS
 SELECT 
@@ -545,7 +543,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-08';
 ```
-## 病人看到自己的預約結果(ID:P-2024-09)
+
 ```
 CREATE OR REPLACE VIEW patient_view_09 AS
 SELECT 
@@ -576,7 +574,6 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-09';
 ```
-## 病人看到自己的預約結果(ID:P-2024-10)
 ```
 CREATE OR REPLACE VIEW patient_view_10 AS
 SELECT 
@@ -607,7 +604,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-10';
 ```
-## 病人看到自己的預約結果(ID:P-2024-11)
+
 ```
 CREATE OR REPLACE VIEW patient_view_11 AS
 SELECT 
@@ -638,7 +635,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-11';
 ```
-## 病人看到自己的預約結果(ID:P-2024-12)
+
 ```
 CREATE OR REPLACE VIEW patient_view_12 AS
 SELECT 
@@ -669,7 +666,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-12';
 ```
-## 病人看到自己的預約結果(ID:P-2024-13)
+
 ```
 CREATE OR REPLACE VIEW patient_view_13 AS
 SELECT 
@@ -700,7 +697,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-13';
 ```
-## 病人看到自己的預約結果(ID:P-2024-14)
+
 ```
 CREATE OR REPLACE VIEW patient_view_14 AS
 SELECT 
@@ -731,7 +728,7 @@ LEFT JOIN schedule s ON a.schedule_id = s.schedule_id
 LEFT JOIN doctor d ON s.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-14';
 ```
-## 病人看到自己的預約結果(ID:P-2024-15)
+
 ```
 CREATE OR REPLACE VIEW patient_view_15 AS
 SELECT 
