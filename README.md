@@ -1482,6 +1482,194 @@ GRANT SELECT ON hos.doctor_appointments_view_09 TO 'doctor_D-009'@'localhost';
 GRANT SELECT ON hos.doctor_appointments_view_10 TO 'doctor_D-010'@'localhost';
 ```
 
+
+
+## 創建醫生查看班表view
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_01 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-001';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_02 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-002';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_03 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-003';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_04 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-004';
+
+```
+
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_05 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-005';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_06 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-006';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_07 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-007';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_08 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-008';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_09 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-009';
+
+```
+
+```
+CREATE OR REPLACE VIEW doctor_schedule_view_10 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    s.schedule_id AS 排班編號,
+    s.schedule_date AS 排班日期,
+    s.schedule_time AS 排班時段,
+    s.week AS 星期,
+    s.clinic AS 診間,
+    s.schedule_status AS 狀態
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+WHERE d.doctor_id = 'D-010';
+
+```
+
+## 設定doctor_schedule_view權限
+```
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-001'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-002'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-003'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-004'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-005'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-006'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-007'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-008'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-009'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-010'@'localhost';
+
+```
+
+
+
+
+
+
+
+
 ## 作業(Customer order entry)
 ```
 CREATE TABLE Customer (
