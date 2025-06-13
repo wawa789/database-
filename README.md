@@ -1,4 +1,4 @@
-## 組員
+<img width="485" alt="image" src="https://github.com/user-attachments/assets/96063801-17c2-493e-b287-9bbe5c46d74c" />## 組員
 
 林國善
 41136111 資訊工程系3年級乙班
@@ -812,19 +812,189 @@ SELECT *FROM patient_view_15;
 
 
 
-## 病人可以查看自己的個人資料(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 病人可以查看自己的個人資料
 ```
-CREATE VIEW patient_information_view_01 AS
+CREATE OR REPLACE VIEW patient_information_view_01 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    p.phone,
-    p.national_id
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
 FROM patient p
 WHERE p.patient_id = 'P-2024-01';
 ```
+```
+CREATE OR REPLACE VIEW patient_information_view_02 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-02';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_03 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-03';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_04 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-04';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_05 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-05';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_06 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-06';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_07 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-07';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_08 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-08';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_09 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-09';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_10 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-10';
+```
+
+```
+CREATE OR REPLACE VIEW patient_information_view_11 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-11';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_12 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-12';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_13 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-13';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_14 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-14';
+```
+```
+CREATE OR REPLACE VIEW patient_information_view_15 AS
+SELECT 
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    p.phone AS 病人電話,
+    p.national_id AS 病人身分證字號
+FROM patient p
+WHERE p.patient_id = 'P-2024-15';
+```
+
 ## 設定patient_information_view權限
 ```
 GRANT SELECT ON hos.patient_information_view_01 TO 'patient_P_2024_01'@'localhost';
