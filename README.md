@@ -806,88 +806,63 @@ mysql -u patient_P_2024_01 -p -h localhost
 ```
 SELECT *FROM patient_view_01;
 ```
-<img width="916" alt="image" src="https://github.com/user-attachments/assets/6a9041d0-d4fe-4236-99e5-d15aa7113a3a" />
-
+![image](https://github.com/user-attachments/assets/169ef5dd-a14a-4ccb-93cb-91a089646712)
 ```
 SELECT *FROM patient_view_02;
 ```
-<img width="830" alt="image" src="https://github.com/user-attachments/assets/259c35d9-ef82-449c-8e3d-9e81924af0e0" />
-
+![image](https://github.com/user-attachments/assets/b309e6cc-dfb9-4a09-9d33-2ee3c7a29bd7)
 ```
 SELECT *FROM patient_view_03;
 ```
-<img width="833" alt="image" src="https://github.com/user-attachments/assets/9b40971d-7229-447e-a5e5-c86031d4a07b" />
-
+![image](https://github.com/user-attachments/assets/e617b8a0-b40f-400d-b3ce-9077997904db)
 ```
 SELECT *FROM patient_view_04;
 ```
-<img width="832" alt="image" src="https://github.com/user-attachments/assets/7c8e3ec6-69b8-44f9-8989-080d31e3de30" />
-
+![image](https://github.com/user-attachments/assets/978ee969-8ebc-4310-8018-c3b2a308a00e)
 ```
 SELECT *FROM patient_view_05;
 ```
-<img width="839" alt="image" src="https://github.com/user-attachments/assets/519dcf3b-74c0-4b5d-a5bd-4c9577e04bbc" />
-
-
+![image](https://github.com/user-attachments/assets/2c92593d-6181-4c16-aaf1-9a207793fd79)
 ```
 SELECT *FROM patient_view_06;
 ```
-<img width="835" alt="image" src="https://github.com/user-attachments/assets/74058f30-6e73-414b-a1b6-ba370f84d5a8" />
-
-
+![image](https://github.com/user-attachments/assets/e07a5874-a4a5-4a4f-bfb9-e7e8712b8d90)
 ```
 SELECT *FROM patient_view_07;
 ```
-<img width="832" alt="image" src="https://github.com/user-attachments/assets/2c5e382c-4e5d-42a5-9843-22cca0a335f2" />
-
-
+![image](https://github.com/user-attachments/assets/579fe47d-c02c-4733-a2dc-ef0a14baf06d)
 ```
 SELECT *FROM patient_view_08;
 ```
-<img width="832" alt="image" src="https://github.com/user-attachments/assets/ea698aee-652a-4e53-89fb-ab67ac04491e" />
-
-
+![image](https://github.com/user-attachments/assets/fd2ed63a-e2d9-434a-adf8-dce60265da47)
 ```
 SELECT *FROM patient_view_09;
 ```
-<img width="829" alt="image" src="https://github.com/user-attachments/assets/e28bd74c-5ba3-40fa-9bc1-14dfa3597328" />
-
-
+![image](https://github.com/user-attachments/assets/520fdda7-021a-41d1-ad75-3e7cde811c04)
 ```
 SELECT *FROM patient_view_10;
 ```
-<img width="830" alt="image" src="https://github.com/user-attachments/assets/05255a6d-0017-45fa-88ce-ce0db2f665ac" />
-
-
+![image](https://github.com/user-attachments/assets/7cdd7701-4136-472a-9b13-c496cb0184ce)
 ```
 SELECT *FROM patient_view_11;
 ```
-<img width="830" alt="image" src="https://github.com/user-attachments/assets/4d14ea6d-c2f2-4669-a582-b8749454e184" />
-
-
+![image](https://github.com/user-attachments/assets/ed6cbee0-09f3-439d-b299-9c135a89237d)
 ```
 SELECT *FROM patient_view_12;
 ```
-<img width="824" alt="image" src="https://github.com/user-attachments/assets/53cc747f-d8bb-4eb4-a339-3ee696c678ba" />
-
-
+![image](https://github.com/user-attachments/assets/96cd7117-54ab-40b0-9ebd-e8676c902f59)
 ```
 SELECT *FROM patient_view_13;
 ```
-<img width="829" alt="image" src="https://github.com/user-attachments/assets/01444389-dc54-49f7-8fa1-ef5ab91c6327" />
-
-
+![image](https://github.com/user-attachments/assets/a956ebef-9f51-44af-bd18-e5c66f2f8c4c)
 ```
 SELECT *FROM patient_view_14;
 ```
-<img width="832" alt="image" src="https://github.com/user-attachments/assets/a671d916-eddf-40db-91f4-9825fbaf3504" />
-
-
+![image](https://github.com/user-attachments/assets/d1a1f263-5656-4852-a7f9-54e68ddadffc)
 ```
 SELECT *FROM patient_view_15;
 ```
-<img width="832" alt="image" src="https://github.com/user-attachments/assets/2de9d2b9-1832-4f1d-ac30-c3592490911a" />
-
+![image](https://github.com/user-attachments/assets/47c281ba-5b80-458b-a1e4-3808676b5765)
 
 
 ## 病人可以查看自己的個人資料
