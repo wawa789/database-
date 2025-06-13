@@ -1071,91 +1071,77 @@ GRANT SELECT ON hos.patient_information_view_15 TO 'patient_P_2024_15'@'localhos
 ```
 SELECT *FROM patient_information_view_01;
 ```
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/5efb9b22-3c54-4819-ad24-2593f404fbc0" />
+![image](https://github.com/user-attachments/assets/0e0adee1-43a4-44a0-9eff-e4ad94c2d08c)
 
 ```
 SELECT *FROM patient_information_view_02;
 ```
-<img width="437" alt="image" src="https://github.com/user-attachments/assets/8ad83c33-61c8-47c7-9eb8-7ac188620936" />
-
+![image](https://github.com/user-attachments/assets/208d790b-1aff-413e-943c-bbc587722b68)
 
 ```
 SELECT *FROM patient_information_view_03;
 ```
-
-<img width="433" alt="image" src="https://github.com/user-attachments/assets/5c65ea46-d067-430d-86c3-48931435995c" />
-
+![image](https://github.com/user-attachments/assets/ec3b8285-3ca0-437e-93b4-895e50f55178)
 
 ```
 SELECT *FROM patient_information_view_04;
 ```
-<img width="438" alt="image" src="https://github.com/user-attachments/assets/99346b5c-2ae6-44e4-843a-86dc3b94a718" />
-
+![image](https://github.com/user-attachments/assets/5f242464-133e-4764-ae34-f5d6ffe11eca)
 
 ```
 SELECT *FROM patient_information_view_05;
 ```
-<img width="433" alt="image" src="https://github.com/user-attachments/assets/e6fba5e9-3166-4490-b12e-dd09be9e6d31" />
-
+![image](https://github.com/user-attachments/assets/6cf2854b-eab0-4695-97f2-16edd245475a)
 
 ```
 SELECT *FROM patient_information_view_06;
 ```
-<img width="434" alt="image" src="https://github.com/user-attachments/assets/15eb7a6d-9eb4-49f1-a43d-08afd0d1482d" />
-
+![image](https://github.com/user-attachments/assets/03ce63c4-23c5-4304-99e2-451d5bf0e640)
 
 ```
 SELECT *FROM patient_information_view_07;
 ```
-<img width="434" alt="image" src="https://github.com/user-attachments/assets/c85d4895-88cd-4f2a-bf86-93d3d0925bca" />
-
+![image](https://github.com/user-attachments/assets/a30c209b-054c-478a-b956-7ea6ea7a0a00)
 
 ```
 SELECT *FROM patient_information_view_08;
 ```
-<img width="438" alt="image" src="https://github.com/user-attachments/assets/94ddbdc5-38d6-478c-bbbd-de8ae7b330d4" />
-
+![image](https://github.com/user-attachments/assets/22005dac-7831-4e52-afdd-d766529ab8b5)
 
 ```
 SELECT *FROM patient_information_view_09;
 ```
-<img width="437" alt="image" src="https://github.com/user-attachments/assets/0f7a2335-5e79-404a-810c-3acb5fa83099" />
-
+![image](https://github.com/user-attachments/assets/29de350b-5f08-45a0-a257-7867b9db1387)
 
 ```
 SELECT *FROM patient_information_view_10;
 ```
-<img width="434" alt="image" src="https://github.com/user-attachments/assets/79a8a1a2-ab58-4e8c-b64d-81c9ea0c1a5b" />
-
+![image](https://github.com/user-attachments/assets/3e37672c-26fb-4d49-8cb7-eeeaa3f3c090)
 
 ```
 SELECT *FROM patient_information_view_11;
 ```
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/222c57b2-c6ba-4d45-a4b2-2ea85e1ee916" />
-
+![image](https://github.com/user-attachments/assets/7ef3d12c-8115-4b12-8ef7-77673c271246)
 
 ```
 SELECT *FROM patient_information_view_12;
 ```
-<img width="431" alt="image" src="https://github.com/user-attachments/assets/ca12efe9-1eff-4331-b2cd-a2d79d10e450" />
-
+![image](https://github.com/user-attachments/assets/789038d3-a1c5-4d30-852e-a668a2a66d75)
 
 ```
 SELECT *FROM patient_information_view_13;
 ```
-<img width="435" alt="image" src="https://github.com/user-attachments/assets/136a8414-fc48-4b42-9280-f958e4b7c5c0" />
-
+![image](https://github.com/user-attachments/assets/07ba818f-4669-4ee3-b09a-4bd7c91e8593)
 
 ```
 SELECT *FROM patient_information_view_14;
 ```
-<img width="435" alt="image" src="https://github.com/user-attachments/assets/06654bcf-0f19-45a6-a2e6-3610317907cd" />
-
+![image](https://github.com/user-attachments/assets/d36ac3ff-f613-40fd-8f07-6924a22eb315)
 
 ```
 SELECT *FROM patient_information_view_15;
 ```
-<img width="436" alt="image" src="https://github.com/user-attachments/assets/79f06cce-2e9f-4977-8db2-b25719e1f425" />
+![image](https://github.com/user-attachments/assets/0b907755-32fc-4907-b889-1679dd4bf4ea)
 
 
 
