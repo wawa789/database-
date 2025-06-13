@@ -292,20 +292,20 @@ INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointm
 ```
 
 
-## 病人看到自己的預約結果(以ID:P-2024-01)
+## 病人看到自己的預約結果(ID:P-2024-01)
 ```
-CREATE VIEW patient_view_01 AS
+CREATE OR REPLACE VIEW patient_view_01 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
@@ -313,280 +313,280 @@ LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-01';
 ```
 
-## 病人看到自己的預約結果(以ID:P-2024-02)
+## 病人看到自己的預約結果(ID:P-2024-02)
 ```
-CREATE VIEW patient_view_02 AS
+CREATE OR REPLACE VIEW patient_view_02 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-02';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-03)
+## 病人看到自己的預約結果(ID:P-2024-03)
 ```
-CREATE VIEW patient_view_03 AS
+CREATE OR REPLACE VIEW patient_view_03 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-03';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-04)
+## 病人看到自己的預約結果(ID:P-2024-04)
 ```
-CREATE VIEW patient_view_04 AS
+CREATE OR REPLACE VIEW patient_view_04 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-04';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-05)
+## 病人看到自己的預約結果(ID:P-2024-05)
 ```
-CREATE VIEW patient_view_05 AS
+CREATE OR REPLACE VIEW patient_view_05 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-05';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-06)
+## 病人看到自己的預約結果(ID:P-2024-06)
 ```
-CREATE VIEW patient_view_06 AS
+CREATE OR REPLACE VIEW patient_view_06 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-06';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-07)
+## 病人看到自己的預約結果(ID:P-2024-07)
 ```
-CREATE VIEW patient_view_07 AS
+CREATE OR REPLACE VIEW patient_view_07 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-07';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-08)
+## 病人看到自己的預約結果(ID:P-2024-08)
 ```
-CREATE VIEW patient_view_08 AS
+CREATE OR REPLACE  VIEW patient_view_08 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-08';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-09)
+## 病人看到自己的預約結果(ID:P-2024-09)
 ```
-CREATE VIEW patient_view_09 AS
+CREATE OR REPLACE VIEW patient_view_09 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-09';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-10)
+## 病人看到自己的預約結果(ID:P-2024-10)
 ```
-CREATE VIEW patient_view_10 AS
+CREATE OR REPLACE VIEW patient_view_10 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-10';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-11)
+## 病人看到自己的預約結果(ID:P-2024-11)
 ```
-CREATE VIEW patient_view_11 AS
+CREATE OR REPLACE VIEW patient_view_11 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-11';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-12)
+## 病人看到自己的預約結果(ID:P-2024-12)
 ```
-CREATE VIEW patient_view_12 AS
+CREATE OR REPLACE VIEW patient_view_12 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-12';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-13)
+## 病人看到自己的預約結果(ID:P-2024-13)
 ```
-CREATE VIEW patient_view_13 AS
+CREATE OR REPLACE VIEW patient_view_13 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-13';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-14)
+## 病人看到自己的預約結果(ID:P-2024-14)
 ```
-CREATE VIEW patient_view_14 AS
+CREATE OR REPLACE VIEW patient_view_14 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
 LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-14';
 ```
-## 病人看到自己的預約結果(以ID:P-2024-15)
+## 病人看到自己的預約結果(ID:P-2024-15)
 ```
-CREATE VIEW patient_view_15 AS
+CREATE OR REPLACE VIEW patient_view_15 AS
 SELECT 
-    p.patient_id,
-    p.name AS patient_name,
-    p.gender,
-    p.birth_date,
-    d.name AS doctor_name,
-    d.specialty,
-    a.status AS appointment_status,
-    a.appointment_time,
-    a.clinic,
-    a.number AS appointment_number
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    p.gender AS 病人性別,
+    p.birth_date AS 病人出生年月日,
+    d.name AS 醫生名字,
+    d.specialty AS 科別,
+    a.status AS 預約狀態,
+    a.appointment_time AS 預約時間,
+    a.clinic AS 診間號碼,
+    a.number AS 看診號碼
 FROM patient p
 LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
 LEFT JOIN appointment a ON p.patient_id = a.patient_id
