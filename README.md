@@ -1651,21 +1651,213 @@ WHERE d.doctor_id = 'D-010';
 ## 設定doctor_schedule_view權限
 ```
 GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-001'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-002'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-003'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-004'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-005'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-006'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-007'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-008'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-009'@'localhost';
-GRANT SELECT ON hos.doctor_schedule_view_01 TO 'doctor_D-010'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_02 TO 'doctor_D-002'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_03 TO 'doctor_D-003'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_04 TO 'doctor_D-004'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_05 TO 'doctor_D-005'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_06 TO 'doctor_D-006'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_07 TO 'doctor_D-007'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_08 TO 'doctor_D-008'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_09 TO 'doctor_D-009'@'localhost';
+GRANT SELECT ON hos.doctor_schedule_view_10 TO 'doctor_D-010'@'localhost';
 
 ```
 
 
+## 創建醫生查看病例view
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_01 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-001';
 
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_02 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-002';
 
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_03 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-003';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_04 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-004';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_05 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-005';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_06 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-006';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_07 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-007';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_08 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-008';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_09 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-009';
+
+```
+```
+CREATE OR REPLACE VIEW doctor_medical_record_view_10 AS
+SELECT
+    d.doctor_id AS 醫生編號,
+    d.name AS 醫生姓名,
+    p.patient_id AS 病人編號,
+    p.name AS 病人姓名,
+    mr.medical_record_id AS 病歷編號,
+    mr.diagnosis_record AS 診斷紀錄,
+    mr.visits_date AS 看診日期
+FROM doctor d
+JOIN schedule s ON d.doctor_id = s.doctor_id
+JOIN appointment a ON s.schedule_id = a.schedule_id
+JOIN medical_record mr ON a.medical_record_id = mr.medical_record_id
+JOIN patient p ON a.patient_id = p.patient_id
+WHERE d.doctor_id = 'D-010';
+
+```
+##設定doctor_medical_record_view權限
+```
+GRANT SELECT ON hos.doctor_medical_record_view_01 TO 'doctor_D-001'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_02 TO 'doctor_D-002'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_03 TO 'doctor_D-003'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_04 TO 'doctor_D-004'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_05 TO 'doctor_D-005'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_06 TO 'doctor_D-006'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_07 TO 'doctor_D-007'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_08 TO 'doctor_D-008'@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_09 TO 'doctor_D-009@'localhost';
+GRANT SELECT ON hos.doctor_medical_record_view_10 TO 'doctor_D-010'@'localhost';
+```
 
 
 
