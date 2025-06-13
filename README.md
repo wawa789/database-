@@ -704,51 +704,61 @@ SELECT *FROM patient_view_05;
 ```
 SELECT *FROM patient_view_06;
 ```
+<img width="835" alt="image" src="https://github.com/user-attachments/assets/74058f30-6e73-414b-a1b6-ba370f84d5a8" />
 
 
 ```
 SELECT *FROM patient_view_07;
 ```
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/2c5e382c-4e5d-42a5-9843-22cca0a335f2" />
 
 
 ```
 SELECT *FROM patient_view_08;
 ```
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/ea698aee-652a-4e53-89fb-ab67ac04491e" />
 
 
 ```
 SELECT *FROM patient_view_09;
 ```
+<img width="829" alt="image" src="https://github.com/user-attachments/assets/e28bd74c-5ba3-40fa-9bc1-14dfa3597328" />
 
 
 ```
 SELECT *FROM patient_view_10;
 ```
+<img width="830" alt="image" src="https://github.com/user-attachments/assets/05255a6d-0017-45fa-88ce-ce0db2f665ac" />
 
 
 ```
 SELECT *FROM patient_view_11;
 ```
+<img width="830" alt="image" src="https://github.com/user-attachments/assets/4d14ea6d-c2f2-4669-a582-b8749454e184" />
 
 
 ```
 SELECT *FROM patient_view_12;
 ```
+<img width="824" alt="image" src="https://github.com/user-attachments/assets/53cc747f-d8bb-4eb4-a339-3ee696c678ba" />
 
 
 ```
 SELECT *FROM patient_view_13;
 ```
+<img width="829" alt="image" src="https://github.com/user-attachments/assets/01444389-dc54-49f7-8fa1-ef5ab91c6327" />
 
 
 ```
 SELECT *FROM patient_view_14;
 ```
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/a671d916-eddf-40db-91f4-9825fbaf3504" />
 
 
 ```
 SELECT *FROM patient_view_15;
 ```
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/2de9d2b9-1832-4f1d-ac30-c3592490911a" />
 
 
 
