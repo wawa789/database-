@@ -2365,42 +2365,52 @@ SELECT *FROM doctor_medical_record_view_10;
 ```
 SHOW GRANTS FOR 'doctor_D-001'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/47addb5f-6bc5-48be-8486-f18983299041)
 
 ```
 SHOW GRANTS FOR 'doctor_D-002'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/30f74959-96e7-469d-b39a-6de119f152b0)
 
 ```
 SHOW GRANTS FOR 'doctor_D-003'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/d52196dc-8110-410e-be4e-a407114954e8)
 
 ```
 SHOW GRANTS FOR 'doctor_D-004'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/5bb5996b-3c8c-4816-ac3b-ba66f151144a)
 
 ```
 SHOW GRANTS FOR 'doctor_D-005'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/456de609-d39b-4c80-934e-64fd41c2fb97)
 
 ```
 SHOW GRANTS FOR 'doctor_D-006'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/6bebac60-34ba-4467-b430-5785a054acd2)
 
 ```
-SHOW GRANTS FOR 'doctor_D-007@'localhost';
+SHOW GRANTS FOR 'doctor_D-007'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/583b449d-0fb8-4c1e-a1d9-fb493e49f2de)
 
 ```
 SHOW GRANTS FOR 'doctor_D-008'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/023b5293-1eb4-4a61-9c85-8632daf61d70)
 
 ```
 SHOW GRANTS FOR 'doctor_D-009'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/2597938e-ab58-4a52-adf5-59f38cfa5a7c)
 
 ```
 SHOW GRANTS FOR 'doctor_D-010'@'localhost';
 ```
+![image](https://github.com/user-attachments/assets/d9da4795-7f11-45d6-a795-241cadd3fdc3)
 
 
 
