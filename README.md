@@ -292,7 +292,7 @@ INSERT INTO appointment (appointment_id, patient_id, doctor_id, status, appointm
 ```
 
 
-## 病人看到自己的預約結果(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 病人看到自己的預約結果(以ID:P-2024-01)
 ```
 CREATE VIEW patient_view_01 AS
 SELECT 
@@ -313,30 +313,401 @@ LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
 WHERE p.patient_id = 'P-2024-01';
 ```
 
-## 創建使用者(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 病人看到自己的預約結果(以ID:P-2024-02)
+```
+CREATE VIEW patient_view_02 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-02';
+```
+## 病人看到自己的預約結果(以ID:P-2024-03)
+```
+CREATE VIEW patient_view_03 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-03';
+```
+## 病人看到自己的預約結果(以ID:P-2024-04)
+```
+CREATE VIEW patient_view_04 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-04';
+```
+## 病人看到自己的預約結果(以ID:P-2024-05)
+```
+CREATE VIEW patient_view_05 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-05';
+```
+## 病人看到自己的預約結果(以ID:P-2024-06)
+```
+CREATE VIEW patient_view_06 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-06';
+```
+## 病人看到自己的預約結果(以ID:P-2024-07)
+```
+CREATE VIEW patient_view_07 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-07';
+```
+## 病人看到自己的預約結果(以ID:P-2024-08)
+```
+CREATE VIEW patient_view_08 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-08';
+```
+## 病人看到自己的預約結果(以ID:P-2024-09)
+```
+CREATE VIEW patient_view_09 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-09';
+```
+## 病人看到自己的預約結果(以ID:P-2024-10)
+```
+CREATE VIEW patient_view_10 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-10';
+```
+## 病人看到自己的預約結果(以ID:P-2024-11)
+```
+CREATE VIEW patient_view_11 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-11';
+```
+## 病人看到自己的預約結果(以ID:P-2024-12)
+```
+CREATE VIEW patient_view_12 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-12';
+```
+## 病人看到自己的預約結果(以ID:P-2024-13)
+```
+CREATE VIEW patient_view_13 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-13';
+```
+## 病人看到自己的預約結果(以ID:P-2024-14)
+```
+CREATE VIEW patient_view_14 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-14';
+```
+## 病人看到自己的預約結果(以ID:P-2024-15)
+```
+CREATE VIEW patient_view_15 AS
+SELECT 
+    p.patient_id,
+    p.name AS patient_name,
+    p.gender,
+    p.birth_date,
+    d.name AS doctor_name,
+    d.specialty,
+    a.status AS appointment_status,
+    a.appointment_time,
+    a.clinic,
+    a.number AS appointment_number
+FROM patient p
+LEFT JOIN medical_record mr ON p.patient_id = mr.patient_id
+LEFT JOIN appointment a ON p.patient_id = a.patient_id
+LEFT JOIN doctor d ON a.doctor_id = d.doctor_id
+WHERE p.patient_id = 'P-2024-15';
+```
+## 創建使用者
 ```
 CREATE USER 'patient_P_2024_01'@'localhost' IDENTIFIED BY 'secure_password_01';
+CREATE USER 'patient_P_2024_02'@'localhost' IDENTIFIED BY 'secure_password_02';
+CREATE USER 'patient_P_2024_03'@'localhost' IDENTIFIED BY 'secure_password_03';
+CREATE USER 'patient_P_2024_04'@'localhost' IDENTIFIED BY 'secure_password_04';
+CREATE USER 'patient_P_2024_05'@'localhost' IDENTIFIED BY 'secure_password_05';
+CREATE USER 'patient_P_2024_06'@'localhost' IDENTIFIED BY 'secure_password_06';
+CREATE USER 'patient_P_2024_07'@'localhost' IDENTIFIED BY 'secure_password_07';
+CREATE USER 'patient_P_2024_08'@'localhost' IDENTIFIED BY 'secure_password_08';
+CREATE USER 'patient_P_2024_09'@'localhost' IDENTIFIED BY 'secure_password_09';
+CREATE USER 'patient_P_2024_10'@'localhost' IDENTIFIED BY 'secure_password_10';
+CREATE USER 'patient_P_2024_11'@'localhost' IDENTIFIED BY 'secure_password_11';
+CREATE USER 'patient_P_2024_12'@'localhost' IDENTIFIED BY 'secure_password_12';
+CREATE USER 'patient_P_2024_13'@'localhost' IDENTIFIED BY 'secure_password_13';
+CREATE USER 'patient_P_2024_14'@'localhost' IDENTIFIED BY 'secure_password_14';
+CREATE USER 'patient_P_2024_15'@'localhost' IDENTIFIED BY 'secure_password_15';
 ```
 
-## 設定權限(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 設定patient_view權限
 ```
 GRANT SELECT ON hos.patient_view_01 TO 'patient_P_2024_01'@'localhost';
+GRANT SELECT ON hos.patient_view_02 TO 'patient_P_2024_02'@'localhost';
+GRANT SELECT ON hos.patient_view_03 TO 'patient_P_2024_03'@'localhost';
+GRANT SELECT ON hos.patient_view_04 TO 'patient_P_2024_04'@'localhost';
+GRANT SELECT ON hos.patient_view_05 TO 'patient_P_2024_05'@'localhost';
+GRANT SELECT ON hos.patient_view_06 TO 'patient_P_2024_06'@'localhost';
+GRANT SELECT ON hos.patient_view_07 TO 'patient_P_2024_07'@'localhost';
+GRANT SELECT ON hos.patient_view_08 TO 'patient_P_2024_08'@'localhost';
+GRANT SELECT ON hos.patient_view_09 TO 'patient_P_2024_09'@'localhost';
+GRANT SELECT ON hos.patient_view_10 TO 'patient_P_2024_10'@'localhost';
+GRANT SELECT ON hos.patient_view_11 TO 'patient_P_2024_11'@'localhost';
+GRANT SELECT ON hos.patient_view_12 TO 'patient_P_2024_12'@'localhost';
+GRANT SELECT ON hos.patient_view_13 TO 'patient_P_2024_13'@'localhost';
+GRANT SELECT ON hos.patient_view_14 TO 'patient_P_2024_14'@'localhost';
+GRANT SELECT ON hos.patient_view_15 TO 'patient_P_2024_15'@'localhost';
 ```
-## 查看權限設定是否正確(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 查看權限設定是否正確
 ```
 SHOW GRANTS FOR 'patient_P_2024_01'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_02'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_03'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_04'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_05'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_06'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_07'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_08'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_09'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_10'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_11'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_12'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_13'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_14'@'localhost';
+SHOW GRANTS FOR 'patient_P_2024_15'@'localhost';
 ```
-<img width="746" alt="image" src="https://github.com/user-attachments/assets/50eee3f3-efa7-44b3-94cb-89d2746a7376" />
+<img width="685" alt="image" src="https://github.com/user-attachments/assets/8d5d608b-a22d-4a2f-a186-df15dfa3213b" />
+<img width="688" alt="image" src="https://github.com/user-attachments/assets/ea943304-01f9-4692-b48e-adda51d092d3" />
+<img width="692" alt="image" src="https://github.com/user-attachments/assets/d129818a-e7a7-4c79-9037-186fc83eb532" />
+<img width="689" alt="image" src="https://github.com/user-attachments/assets/3bf6f8eb-53d5-4201-aec5-d5dd8a42cf21" />
+<img width="688" alt="image" src="https://github.com/user-attachments/assets/0ba057e2-a681-4d3a-b0c8-f335194d2d02" />
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/a40dac90-c321-46d7-83fc-b6a2d4990c0b" />
+<img width="690" alt="image" src="https://github.com/user-attachments/assets/6e5c4f32-bdbc-44b3-85c2-e318558576ed" />
+<img width="691" alt="image" src="https://github.com/user-attachments/assets/76106882-2032-4837-8179-042c8fab691b" />
+<img width="684" alt="image" src="https://github.com/user-attachments/assets/a68bb436-4701-4317-98b0-3889bf8051e9" />
+<img width="689" alt="image" src="https://github.com/user-attachments/assets/83a5c458-c9fa-4305-b74f-e5e8f8182f80" />
+<img width="694" alt="image" src="https://github.com/user-attachments/assets/bdee53cf-1d1f-4204-af8b-f5db27b58f5e" />
+<img width="686" alt="image" src="https://github.com/user-attachments/assets/b537d173-a79c-4ee3-88f0-bf5a372fa708" />
+<img width="695" alt="image" src="https://github.com/user-attachments/assets/84c6d19e-f476-4600-8539-f7e88a654de4" />
+<img width="697" alt="image" src="https://github.com/user-attachments/assets/c27c4fba-f6b4-4350-9ca4-8746dcf52a4a" />
+<img width="689" alt="image" src="https://github.com/user-attachments/assets/3c11f79c-d65f-4cbd-b7c9-b0aac98861d1" />
 
-## 使用ID:P-2024-01登入(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+
+
+
+
+
+
+## 使用ID:P-2024-01登入
 ```
-mysql -u patient_P_2024_02 -p -h localhost
+mysql -u patient_P_2024_01 -p -h localhost
 ```
-## 查看預約結果view(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
+## 查看patient_view
 ```
 SELECT *FROM patient_view_01;
 ```
 <img width="916" alt="image" src="https://github.com/user-attachments/assets/6a9041d0-d4fe-4236-99e5-d15aa7113a3a" />
+```
+SELECT *FROM patient_view_02;
+```
+<img width="830" alt="image" src="https://github.com/user-attachments/assets/259c35d9-ef82-449c-8e3d-9e81924af0e0" />
+
+```
+SELECT *FROM patient_view_03;
+```
+<img width="833" alt="image" src="https://github.com/user-attachments/assets/9b40971d-7229-447e-a5e5-c86031d4a07b" />
+```
+SELECT *FROM patient_view_04;
+```
+<img width="832" alt="image" src="https://github.com/user-attachments/assets/7c8e3ec6-69b8-44f9-8989-080d31e3de30" />
+
+```
+SELECT *FROM patient_view_05;
+```
+SELECT *FROM patient_view_06;
+SELECT *FROM patient_view_07;
+SELECT *FROM patient_view_08;
+SELECT *FROM patient_view_09;
+SELECT *FROM patient_view_10;
+SELECT *FROM patient_view_11;
+SELECT *FROM patient_view_12;
+SELECT *FROM patient_view_13;
+SELECT *FROM patient_view_14;
+SELECT *FROM patient_view_15;
+```
+
 
 
 ## 病人可以查看自己的個人資料(以ID:P-2024-01為例，其餘病人於完整報告中呈現)
