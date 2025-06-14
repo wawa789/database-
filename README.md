@@ -372,7 +372,7 @@ CREATE OR REPLACE TABLE appointment (
     FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
     FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
 
-    CHECK (appointment_id REGEXP '^[0-9]{8}-[0-9]{3}$'),
+    CHECK (appointment_id REGEXP '^[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$'),
 
     CHECK (patient_id REGEXP '^P-[0-9]{4}-[0-9]{2,}$'),
 
