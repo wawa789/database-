@@ -316,32 +316,7 @@ END;
 DELIMITER ;
 ```
 
-## 預約表
-```
-CREATE OR REPLACE TABLE appointment (
-    appointment_id VARCHAR(30) PRIMARY KEY,
-    patient_id VARCHAR(30) NOT NULL,
-    doctor_id VARCHAR(30) NOT NULL,
-    schedule_id INTEGER NOT NULL,
-    number VARCHAR(10),
-    appointment_status TEXT NOT NULL,
-    medical_record_id VARCHAR(30),
 
-    FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
-    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
-    FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
-    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
-
-    CHECK (appointment_id REGEXP '^[0-9]{8}-[0-9]{3}$'),
-
-    CHECK (patient_id REGEXP '^P-[0-9]{4}-[0-9]{2,}$'),
-
-    CHECK (number IS NULL OR number REGEXP '^[1-9][0-9]{0,2}號$'),
-
-    CHECK (appointment_status IN ('已預約', '已完成', '取消'))
-);
-
-```
 
 ## 醫生排班表
 ```
@@ -380,6 +355,32 @@ CREATE OR REPLACE TABLE schedule (
 
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
+```
+## 預約表
+```
+CREATE OR REPLACE TABLE appointment (
+    appointment_id VARCHAR(30) PRIMARY KEY,
+    patient_id VARCHAR(30) NOT NULL,
+    doctor_id VARCHAR(30) NOT NULL,
+    schedule_id INTEGER NOT NULL,
+    number VARCHAR(10),
+    status TEXT NOT NULL,
+    medical_record_id VARCHAR(30),
+
+    FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
+    FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
+
+    CHECK (appointment_id REGEXP '^[0-9]{8}-[0-9]{3}$'),
+
+    CHECK (patient_id REGEXP '^P-[0-9]{4}-[0-9]{2,}$'),
+
+    CHECK (number IS NULL OR number REGEXP '^[1-9][0-9]{0,2}號$'),
+
+    CHECK (status IN ('已預約', '已完成', '取消'))
+);
+
 ```
 
 ## 新增病患資料
@@ -461,22 +462,25 @@ INSERT INTO schedule (schedule_id, doctor_id, schedule_date, schedule_time, week
 ## 新增預約表資料
 ```
 
-INSERT INTO appointment (appointment_id, patient_id, schedule_id, number, status, medical_record_id) VALUES
-('2025-04-21-001', 'P-2024-01', 1, '1號', '已完成', 'MR-001'),
-('2025-04-22-002', 'P-2024-02', 2, '1號', '已預約', 'MR-002'),
-('2025-04-23-003', 'P-2024-03', 3, NULL, '取消', 'MR-003'),
-('2025-04-24-004', 'P-2024-04', 10, '1號', '已完成', 'MR-004'),
-('2025-04-25-005', 'P-2024-05', 5, '1號', '已預約', 'MR-005'),
-('2025-04-26-006', 'P-2024-06', 6, '1號', '已完成', 'MR-006'),
-('2025-04-27-007', 'P-2024-07', 7, '1號', '已預約', 'MR-007'),
-('2025-04-28-008', 'P-2024-08', 10, '1號', '已完成', 'MR-008'),
-('2025-04-29-009', 'P-2024-09', 9, '1號', '已預約', 'MR-009'),
-('2025-04-30-010', 'P-2024-10', 1, '2號', '已完成', 'MR-010'),
-('2025-05-01-011', 'P-2024-11', 1, '3號', '已預約', 'MR-011'),
-('2025-05-02-012', 'P-2024-12', 1, '4號', '已預約', 'MR-012'),
-('2025-05-03-013', 'P-2024-13', 4, NULL, '取消', 'MR-013'),
-('2025-05-04-014', 'P-2024-14', 2, '2號', '已預約', 'MR-014'),
-('2025-05-05-015', 'P-2024-15', 1, '5號', '已預約', 'MR-015');
+
+INSERT INTO appointment (
+    appointment_id, patient_id, doctor_id, schedule_id, number, status, medical_record_id
+) VALUES
+('2025-04-21-001', 'P-2024-01', 'D-001', 1, '1號', '已完成', 'MR-001'),
+('2025-04-22-002', 'P-2024-02', 'D-002', 2, '1號', '已預約', 'MR-002'),
+('2025-04-23-003', 'P-2024-03', 'D-003', 3, NULL,  '取消', 'MR-003'),
+('2025-04-24-004', 'P-2024-04', 'D-010', 10, '1號', '已完成', 'MR-004'),
+('2025-04-25-005', 'P-2024-05', 'D-005', 5, '1號', '已預約', 'MR-005'),
+('2025-04-26-006', 'P-2024-06', 'D-006', 6, '1號', '已完成', 'MR-006'),
+('2025-04-27-007', 'P-2024-07', 'D-007', 7, '1號', '已預約', 'MR-007'),
+('2025-04-28-008', 'P-2024-08', 'D-010', 10, '1號', '已完成', 'MR-008'),
+('2025-04-29-009', 'P-2024-09', 'D-009', 9, '1號', '已預約', 'MR-009'),
+('2025-04-30-010', 'P-2024-10', 'D-001', 1, '2號', '已完成', 'MR-010'),
+('2025-05-01-011', 'P-2024-11', 'D-001', 1, '3號', '已預約', 'MR-011'),
+('2025-05-02-012', 'P-2024-12', 'D-001', 1, '4號', '已預約', 'MR-012'),
+('2025-05-03-013', 'P-2024-13', 'D-004', 4, NULL,  '取消', 'MR-013'),
+('2025-05-04-014', 'P-2024-14', 'D-002', 2, '2號', '已預約', 'MR-014'),
+('2025-05-05-015', 'P-2024-15', 'D-001', 1, '5號', '已預約', 'MR-015');
 
 ```
 
