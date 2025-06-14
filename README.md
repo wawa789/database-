@@ -330,16 +330,40 @@ CREATE OR REPLACE TABLE appointment (
 ## 醫生排班表
 ```
 CREATE OR REPLACE TABLE schedule (
-    schedule_id INTEGER PRIMARY KEY,
-    doctor_id VARCHAR(30),
-    schedule_date DATE,
-    schedule_time TEXT,
-    week TEXT,
-    clinic TEXT,
-    schedule_status TEXT,
+    schedule_id INT PRIMARY KEY AUTO_INCREMENT,
+    doctor_id VARCHAR(30) NOT NULL,
+    schedule_date DATE NOT NULL,
+    schedule_time VARCHAR(10) NOT NULL CHECK (schedule_time IN ('上午', '下午', '晚上')),
+    week VARCHAR(10) NOT NULL CHECK (week IN ('一', '二', '三', '四', '五', '六', '日')),
+    clinic VARCHAR(10) NOT NULL CHECK (clinic REGEXP '^[0-9]{3}診間$'),
+    schedule_status VARCHAR(10) NOT NULL CHECK (schedule_status IN ('開診', '已滿', '休診')),
+    
     FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
 );
 
+```
+```
+CREATE OR REPLACE TABLE schedule (
+    schedule_id INT PRIMARY KEY AUTO_INCREMENT,
+
+    doctor_id VARCHAR(30) NOT NULL,
+
+    schedule_date DATE NOT NULL,
+
+    schedule_time VARCHAR(10) NOT NULL 
+        CHECK (schedule_time IN ('上午', '下午', '晚上')),
+
+    week VARCHAR(10) NOT NULL 
+        CHECK (week IN ('星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日')),
+
+    clinic VARCHAR(10) NOT NULL
+        CHECK (clinic REGEXP '^[1-9][0-9]{2}診間$'),
+
+    schedule_status VARCHAR(10) NOT NULL 
+        CHECK (schedule_status IN ('開診', '已滿', '休診')),
+
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id)
+);
 ```
 
 ## 新增病患資料
