@@ -14,6 +14,8 @@
 
 # 題目 牙醫診所掛號管理資料庫系統
 
+## 簡報
+https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
 ---
 ## 應用情境
 
@@ -2999,5 +3001,4 @@ INSERT INTO `Transaction` (transactionNo, transactionDate, transactionDescriptio
 ![image](https://github.com/user-attachments/assets/b4c75724-0f2a-428e-ab8d-6f51004d60dc)
 
 
-## 簡報
-https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
+
