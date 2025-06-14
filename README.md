@@ -145,7 +145,11 @@
 ![診間](https://github.com/user-attachments/assets/baf61b58-cda7-4960-90a3-e9fc268dfdc8)
 
 
-
+## 建立資料庫並使用
+```
+CREATE DATABASE hos;
+USE hos;
+```
 ## 病患資料表
 ```
 CREATE OR REPLACE TABLE patient (
