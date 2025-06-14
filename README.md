@@ -179,18 +179,15 @@ BEGIN
     DECLARE sum INT;
     DECLARE i INT;
 
-    -- 格式不符
     IF id NOT REGEXP '^[A-Z][12][0-9]{8}$' THEN
         RETURN FALSE;
     END IF;
 
-    -- 取得英文字母對應數字（如 A=10, B=11, ..., I=34）
     SET letter_index = LOCATE(SUBSTRING(id, 1, 1), letter_map);
     IF letter_index = 0 THEN
         RETURN FALSE;
     END IF;
 
-    -- 字母轉兩位數（十位、個位）
     SET n1 = CASE 
         WHEN SUBSTRING(id,1,1) = 'I' THEN 34
         WHEN SUBSTRING(id,1,1) = 'O' THEN 35
@@ -199,17 +196,14 @@ BEGIN
         ELSE letter_index + 9
     END;
 
-    -- 加總驗證碼（英文字母2位數）
     SET sum = FLOOR(n1 / 10) * 1 + (n1 % 10) * 9;
 
-    -- 加總後8碼數字與權重乘積
     SET i = 2;
     WHILE i <= 9 DO
         SET sum = sum + CAST(SUBSTRING(id, i, 1) AS UNSIGNED) * (10 - i);
         SET i = i + 1;
     END WHILE;
 
-    -- 加上第9碼（驗證碼）
     SET sum = sum + CAST(SUBSTRING(id, 10, 1) AS UNSIGNED);
 
     RETURN (MOD(sum, 10) = 0);
