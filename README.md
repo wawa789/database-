@@ -148,14 +148,91 @@
 
 ## 病患資料表
 ```
-CREATE TABLE patient (
+CREATE OR REPLACE TABLE patient (
     patient_id VARCHAR(30) PRIMARY KEY,
-    national_id TEXT NOT NULL,
+    CHECK (patient_id REGEXP '^P-[0-9]{4}-[0-9]{2,3}$'),
+
+    national_id CHAR(10) NOT NULL UNIQUE,
+    CHECK (national_id REGEXP '^[A-Z][12][0-9]{8}$'),
+
     name TEXT NOT NULL,
-    gender TEXT CHECK(gender IN ('男', '女')),
+    CHECK (name REGEXP '^[一-龥]+$'),
+
+    gender TEXT CHECK (gender IN ('男', '女')),
+
     birth_date DATE,
-    phone TEXT
+
+    phone CHAR(10) NOT NULL UNIQUE,
+    CHECK (phone REGEXP '^09[0-9]{8}$')
 );
+```
+
+```
+DELIMITER //
+
+CREATE FUNCTION is_valid_national_id(id CHAR(10)) RETURNS BOOLEAN
+DETERMINISTIC
+BEGIN
+    DECLARE letter_map CHAR(23) DEFAULT 'ABCDEFGHJKLMNPQRSTUVXYWZIO';
+    DECLARE letter_index INT;
+    DECLARE n1 INT;
+    DECLARE sum INT;
+    DECLARE i INT;
+
+    -- 格式不符
+    IF id NOT REGEXP '^[A-Z][12][0-9]{8}$' THEN
+        RETURN FALSE;
+    END IF;
+
+    -- 取得英文字母對應數字（如 A=10, B=11, ..., I=34）
+    SET letter_index = LOCATE(SUBSTRING(id, 1, 1), letter_map);
+    IF letter_index = 0 THEN
+        RETURN FALSE;
+    END IF;
+
+    -- 字母轉兩位數（十位、個位）
+    SET n1 = CASE 
+        WHEN SUBSTRING(id,1,1) = 'I' THEN 34
+        WHEN SUBSTRING(id,1,1) = 'O' THEN 35
+        WHEN SUBSTRING(id,1,1) = 'W' THEN 32
+        WHEN SUBSTRING(id,1,1) = 'Z' THEN 33
+        ELSE letter_index + 9
+    END;
+
+    -- 加總驗證碼（英文字母2位數）
+    SET sum = FLOOR(n1 / 10) * 1 + (n1 % 10) * 9;
+
+    -- 加總後8碼數字與權重乘積
+    SET i = 2;
+    WHILE i <= 9 DO
+        SET sum = sum + CAST(SUBSTRING(id, i, 1) AS UNSIGNED) * (10 - i);
+        SET i = i + 1;
+    END WHILE;
+
+    -- 加上第9碼（驗證碼）
+    SET sum = sum + CAST(SUBSTRING(id, 10, 1) AS UNSIGNED);
+
+    RETURN (MOD(sum, 10) = 0);
+END;
+//
+
+DELIMITER ;
+```
+```
+DELIMITER //
+
+CREATE TRIGGER check_national_id_before_insert
+BEFORE INSERT ON patient
+FOR EACH ROW
+BEGIN
+    IF NOT is_valid_national_id(NEW.national_id) THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Invalid national ID format or checksum.';
+    END IF;
+END;
+//
+
+DELIMITER ;
 ```
 
 ## 醫生資料表
