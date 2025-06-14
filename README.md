@@ -316,15 +316,27 @@ DELIMITER ;
 ```
 CREATE OR REPLACE TABLE appointment (
     appointment_id VARCHAR(30) PRIMARY KEY,
-    patient_id VARCHAR(30),
-    schedule_id INTEGER,
+    patient_id VARCHAR(30) NOT NULL,
+    doctor_id VARCHAR(30) NOT NULL,
+    schedule_id INTEGER NOT NULL,
     number VARCHAR(10),
-    status TEXT,
+    appointment_status TEXT NOT NULL,
     medical_record_id VARCHAR(30),
+
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES doctor(doctor_id),
     FOREIGN KEY (schedule_id) REFERENCES schedule(schedule_id),
-    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id)
+    FOREIGN KEY (medical_record_id) REFERENCES medical_record(medical_record_id),
+
+    CHECK (appointment_id REGEXP '^[0-9]{8}-[0-9]{3}$'),
+
+    CHECK (patient_id REGEXP '^P-[0-9]{4}-[0-9]{2,}$'),
+
+    CHECK (number IS NULL OR number REGEXP '^[1-9][0-9]{0,2}號$'),
+
+    CHECK (appointment_status IN ('已預約', '已完成', '取消'))
 );
+
 ```
 
 ## 醫生排班表
