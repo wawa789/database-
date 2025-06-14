@@ -248,25 +248,21 @@ CREATE TRIGGER validate_doctor_before_insert
 BEFORE INSERT ON doctor
 FOR EACH ROW
 BEGIN
-    -- 驗證 doctor_id：開頭 D + 3 位數字
     IF NEW.doctor_id NOT REGEXP '^D-[0-9]{3}$' THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'doctor_id 格式錯誤，需為 D 開頭加上 3 位數字，如 D-001';
     END IF;
 
-    -- 驗證 name：只允許中文
     IF NEW.name NOT REGEXP '^[一-龥]+$' THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'name 格式錯誤，只能輸入中文';
     END IF;
 
-    -- 驗證 specialty：只允許中文
     IF NEW.specialty NOT REGEXP '^[一-龥]+$' THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'specialty 格式錯誤，只能輸入中文';
     END IF;
 
-    -- 驗證 phone：09 開頭 + 8 位數字
     IF NEW.phone NOT REGEXP '^09[0-9]{8}$' THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'phone 格式錯誤，需為 09 開頭共 10 位數字';
@@ -287,6 +283,33 @@ CREATE OR REPLACE TABLE medical_record (
     visits_date DATE,
     FOREIGN KEY (patient_id) REFERENCES patient(patient_id)
 );
+```
+```
+DELIMITER //
+
+DROP TRIGGER IF EXISTS validate_medical_record_before_insert;
+
+CREATE TRIGGER validate_medical_record_before_insert
+BEFORE INSERT ON medical_record
+FOR EACH ROW
+BEGIN
+    IF NEW.medical_record_id NOT REGEXP '^MR-[0-9]{3}$' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'medical_record_id 格式錯誤，需為 MR 開頭加上 3 位數字，如 MR-001';
+    END IF;
+
+    IF NEW.diagnosis_record NOT REGEXP '^[一-龥]+$' THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'diagnosis_record 格式錯誤，僅允許中文';
+    END IF;
+    IF NEW.visits_date > CURDATE() THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'visits_date 不可晚於今天';
+    END IF;
+END;
+//
+
+DELIMITER ;
 ```
 
 ## 預約表
