@@ -14,6 +14,10 @@
 
 # 題目 牙醫診所掛號管理資料庫系統
 
+## 完整書面報告PDF
+
+[第九組 資料庫期末專題.pdf](https://github.com/user-attachments/files/20743256/default.pdf)
+
 ## 簡報
 
 https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
