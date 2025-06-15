@@ -15,7 +15,13 @@
 # 題目 牙醫診所掛號管理資料庫系統
 
 ## 簡報
+
 https://www.canva.com/design/DAGj82tfSmY/Q-CFpZqbAzo32BPzIDAeGA/edit
+
+##影片
+
+https://youtu.be/whEspVsIwd4?si=csXqtY7JaJ-Mum8-
+
 ---
 ## 應用情境
 
